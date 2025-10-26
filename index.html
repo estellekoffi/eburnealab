@@ -14,6 +14,9 @@
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+        <!-- Customized Bootstrap Stylesheet -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="assets/css/fontawesome.css">
@@ -28,11 +31,400 @@ https://templatemo.com/tm-569-edu-meeting
 
 -->
   </head>
+  <style>
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            margin-bottom: 60px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            perspective: 1000px;
+        }
+
+        .service-card {
+            height: 350px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .service-card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .card-front {
+            background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .card-back {
+            background: linear-gradient(145deg, #1a1a1a 0%, #0d6b68 100%);
+            color: white;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            border-radius: 16px;
+            max-width: 380px;
+            line-height: 1.6;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+            text-align: center;
+        }
+
+
+
+        .card-front h3 {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .card-front p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .card-back h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding-bottom: 15px;
+            text-align: center;
+        }
+
+        .detail-section {
+            margin-bottom: 20px;
+        }
+
+        .detail-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #ffd700;
+        }
+
+        .detail-section p {
+            font-size: 1em;
+            color: #f5f5f5;
+            font-family: 'system-ui', 'Segoe UI', sans-serif;
+            line-height:1.7;
+             text-align: center;
+        }
+
+        .back-button {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            align-self: center;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: #2a5298;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+                /* Section de remplissage pour voir le scroll */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+        }
+
+        .hero-content {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+
+        /* Section À Propos */
+        .about-section {
+            padding: 120px 5%;
+            background: rgba(89, 109, 109, 0.661);
+            position: relative;
+        }
+
+        .about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        /* Animation pour l'image */
+        .about-image-wrapper {
+            position: relative;
+            opacity: 0;
+            transform: translateY(80px);
+            transition: all 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+
+        .about-image-wrapper.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-image {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+            pointer-events: none;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Animation pour le texte */
+        .about-content {
+            opacity: 0;
+            transform: translateY(80px);
+            transition: all 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+            transition-delay: 0.2s;
+        }
+
+        .about-content.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-label {
+            display: inline-block;
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+
+        .about-content.animate .about-label {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.3s;
+        }
+
+        .about-title {
+            font-size: 40px;
+            font-weight: 700;
+            color: whitesmoke;
+            margin-bottom: 20px;
+            line-height: 1.15;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+
+        .about-content.animate .about-title {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
+
+        .about-subtitle {
+            font-family: 'Great Vibes', cursive;
+            font-size: 30px;
+            color:#0d6b68 ;
+            margin-bottom: 32px;
+            font-weight: 500;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+
+        .about-content.animate .about-subtitle {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.5s;
+        }
+
+        .about-description {
+            font-size: 1.125rem;
+            color: white;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+            text-align: justify;
+        }
+
+        .about-content.animate .about-description {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.6s;
+        }
+
+
+        .about-cta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Section suivante pour voir la persistance */
+        .next-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f1f5f9;
+            font-size: 2rem;
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .about-container {
+                gap: 60px;
+            }
+
+            .about-title {
+                font-size: 25px;
+            }
+
+            .about-subtitle {
+                font-size: 20px;
+            }
+
+            .about-image {
+                height: 500px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-section {
+                padding: 80px 5%;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .about-title {
+                font-size: 40px;
+            }
+
+            .about-subtitle {
+                font-size: 20px;
+            }
+
+            .about-description {
+                font-size: 60px;
+            }
+
+            .about-image {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .about-title {
+                font-size: 1.875rem;
+            }
+
+            .about-image {
+                height: 350px;
+            }
+        }
+    </style>
 
 <body>
 
   <!-- Sub Header -->
-  <div class="sub-header">
+  <!-- <div class="sub-header">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-sm-8">
@@ -52,7 +444,7 @@ https://templatemo.com/tm-569-edu-meeting
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
@@ -62,23 +454,23 @@ https://templatemo.com/tm-569-edu-meeting
                   <nav class="main-nav">
                       <!-- ***** Logo Start ***** -->
                       <a href="index.html" class="logo">
-                          Edu Meeting
+                         Eburnea Lab
                       </a>
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
-                          <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                          <li><a href="meetings.html">Meetings</a></li>
-                          <li class="scroll-to-section"><a href="#apply">Apply Now</a></li>
+                          <li class="scroll-to-section"><a href="#top" class="active">Accueil</a></li>
+                          <li><a href="#mission">Mission</a></li>
+                          <li class="scroll-to-section"><a href="#service">Nos services</a></li>
                           <li class="has-sub">
-                              <a href="javascript:void(0)">Pages</a>
+                              <a href="#offre">Nos offres</a>
                               <ul class="sub-menu">
-                                  <li><a href="meetings.html">Upcoming Meetings</a></li>
-                                  <li><a href="meeting-details.html">Meeting Details</a></li>
+                                  <li><a href="#performance">E-performance</a></li>
+                                  <li><a href="#venture">E-venture Lab</a></li>
                               </ul>
                           </li>
-                          <li class="scroll-to-section"><a href="#courses">Courses</a></li> 
-                          <li class="scroll-to-section"><a href="#contact">Contact Us</a></li> 
+                          <li class="scroll-to-section"><a href="#equipe">Equipe</a></li> 
+                          <li class="scroll-to-section"><a href="#contact">Contactez-nous</a></li> 
                       </ul>        
                       <a class='menu-trigger'>
                           <span>Menu</span>
@@ -94,7 +486,7 @@ https://templatemo.com/tm-569-edu-meeting
   <!-- ***** Main Banner Area Start ***** -->
   <section class="section main-banner" id="top" data-section="section1">
       <video autoplay muted loop id="bg-video">
-          <source src="assets/images/course-video.mp4" type="video/mp4" />
+          <source src="assets/video/v3.mp4" type="video/mp4" />
       </video>
 
       <div class="video-overlay header-text">
@@ -102,12 +494,12 @@ https://templatemo.com/tm-569-edu-meeting
             <div class="row">
               <div class="col-lg-12">
                 <div class="caption">
-              <h6>Hello Students</h6>
-              <h2>Welcome to Education</h2>
-              <p>This is an edu meeting HTML CSS template provided by <a rel="nofollow" href="https://templatemo.com/page/1" target="_blank">TemplateMo website</a>. This is a Bootstrap v5.1.3 layout. The video background is taken from Pexels website, a group of young people by <a rel="nofollow" href="https://www.pexels.com/@pressmaster" target="_blank">Pressmaster</a>.</p>
-              <div class="main-button-red">
+              <h6>Conseil • Coaching • Recherche</h6>
+              <h2 style="font-size: 50px;">Bienvenue à Eburnea Lab</h2>
+              <p style="font-family: 'Great Vibes', cursive; font-size: 30px; color:white;">Votre cabinet de conseil et d'accompagnement entrepreneurial</p>
+              <!-- <div class="main-button-red">
                   <div class="scroll-to-section"><a href="#contact">Join Us Now!</a></div>
-              </div>
+              </div> -->
           </div>
               </div>
             </div>
@@ -124,51 +516,51 @@ https://templatemo.com/tm-569-edu-meeting
           
             <div class="item">
               <div class="icon">
-                <img src="assets/images/service-icon-01.png" alt="">
+                <img src="assets/images/c1.png" alt="">
               </div>
               <div class="down-content">
-                <h4>Best Education</h4>
-                <p>Suspendisse tempor mauris a sem elementum bibendum. Praesent facilisis massa non vestibulum.</p>
+                <h4>Consultation</h4>
+                <p>Stratégie, vision et performance.</p>
               </div>
             </div>
             
             <div class="item">
               <div class="icon">
-                <img src="assets/images/service-icon-02.png" alt="">
+                <img src="assets/images/c2.png" alt="">
               </div>
               <div class="down-content">
-                <h4>Best Teachers</h4>
-                <p>Suspendisse tempor mauris a sem elementum bibendum. Praesent facilisis massa non vestibulum.</p>
+                <h4>Études et Recherche</h4>
+                <p>Données, insights et innovation.</p>
               </div>
             </div>
             
             <div class="item">
               <div class="icon">
-                <img src="assets/images/service-icon-03.png" alt="">
+                <img src="assets/images/c3.png" alt="">
               </div>
               <div class="down-content">
-                <h4>Best Students</h4>
-                <p>Suspendisse tempor mauris a sem elementum bibendum. Praesent facilisis massa non vestibulum.</p>
+                <h4>Coaching Exécutif</h4>
+                <p>Leadership et impact renforcé.</p>
               </div>
             </div>
             
             <div class="item">
               <div class="icon">
-                <img src="assets/images/service-icon-02.png" alt="">
+                <img src="assets/images/c4.png" alt="">
               </div>
               <div class="down-content">
-                <h4>Online Meeting</h4>
-                <p>Suspendisse tempor mauris a sem elementum bibendum. Praesent facilisis massa non vestibulum.</p>
+                <h4>Formation</h4>
+                <p>Apprentissage pratique et durable.</p>
               </div>
             </div>
             
             <div class="item">
               <div class="icon">
-                <img src="assets/images/service-icon-03.png" alt="">
+                <img src="assets/images/c5.png" alt="">
               </div>
               <div class="down-content">
-                <h4>Best Networking</h4>
-                <p>Suspendisse tempor mauris a sem elementum bibendum. Praesent facilisis massa non vestibulum.</p>
+                <h4>Recherche et Innovation</h4>
+                <p>Solutions inclusives et durables.</p>
               </div>
             </div>
             
@@ -177,13 +569,372 @@ https://templatemo.com/tm-569-edu-meeting
       </div>
     </div>
   </section>
+  
+    <!-- About Start -->
 
-  <section class="upcoming-meetings" id="meetings">
+    <!-- About End -->
+
+    <!-- Section À Propos -->
+    <section class="about-section upcoming-meetings" id="mission" style="margin-bottom: 50px; margin-top: 50px;" >
+        <div class="about-container">
+            <!-- Photo à gauche -->
+            <div class="about-image-wrapper" id="aboutImageWrapper">
+                <div class="about-image">
+                    <img src="assets/images/img11.png" alt="Notre équipe en action">
+                </div>
+            </div>
+
+            <!-- Texte à droite -->
+            <div class="about-content" id="aboutContent">
+                <span class="about-label">Notre mission</span>
+                <h2 class="about-title"></h2>
+                <p class="about-subtitle">Vous accompagner vers la réussite.</p>
+                <p class="about-description">
+<span style="font-family: 'Great Vibes', cursive; font-size: 50px; color: white;">N</span>ous croyons que l’Afrique regorge de talents et d’opportunités inexploitées. Pourtant, beaucoup de PME restent freinées par un manque de vision, de compétences pratiques et d’accès aux financements.
+Notre mission est d’outiller les dirigeants, de transformer les organisations et de créer de nouvelles entreprises porteuses capables de rivaliser sur les marchés locaux et internationaux.
+                </p>
+            </div>
+        </div>
+    </section>
+
+         <!-- Service 1 -->
+  <section style="margin-bottom: 100px; margin-top: 20px;" class="our-facts" id="service">
     <div class="container">
+          <h1>Nos Services</h1>
+          <p class="subtitle">Cliquez sur une carte pour découvrir les détails</p>
+          
+          <div class="services-grid">
+              <!-- Service 1 -->
+              <div class="service-card" onclick="flipCard(this)">
+                  <div class="card-inner">
+                      <div class="card-face card-front">
+                            <div class="icon">
+                              <img src="assets/images/ic1.png" alt="">
+                            </div>
+                          <h3>Optimisation des Processus</h3>
+                      </div>
+                      <div class="card-face card-back">
+                          <div>
+                              <h3>Optimisation des processus</h3>
+                              <div class="detail-section">
+                                    <p>
+                                      <b>Simplifiez. Accélérez. Gagnez.</b><br>
+                                      Nous aidons votre entreprise à fluidifier ses opérations, éliminer les redondances et réduire les coûts.<br>
+                                      Résultat : des cycles plus rapides, moins d’erreurs et une meilleure productivité au quotidien.
+                                    </p>
+                              </div>
+                          </div>
+                          <!-- <button class="back-button" onclick="event.stopPropagation(); flipCard(this.closest('.service-card'))"></button> -->
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Service 2 -->
+              <div class="service-card" onclick="flipCard(this)">
+                  <div class="card-inner">
+                      <div class="card-face card-front">
+                            <div class="icon">
+                              <img src="assets/images/ic2.png" alt="">
+                            </div>
+                          <h3>Stratégie Financière</h3>
+                      </div>
+                      <div class="card-face card-back">
+                          <div>
+                              <h3>Stratégie financière</h3>
+                              <div class="detail-section">
+                                        <p >
+                                          <b>Clarifiez vos chiffres, sécurisez vos décisions.</b><br>
+                                          Nous structurons la gestion financière pour optimiser le capital, stabiliser la trésorerie et renforcer la crédibilité auprès des banques et investisseurs.<br>
+                                          Une stratégie claire pour une croissance durable.
+                                        </p>
+                                </div>
+                          </div>
+                          <!-- <button class="back-button" onclick="event.stopPropagation(); flipCard(this.closest('.service-card'))"></button> -->
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Service 3 -->
+              <div class="service-card" onclick="flipCard(this)">
+                  <div class="card-inner">
+                      <div class="card-face card-front">
+                            <div class="icon">
+                              <img src="assets/images/ic3.png" alt="">
+                            </div>
+                          <h3>Optimisation de la Relation Client</h3>
+                      </div>
+                      <div class="card-face card-back">
+                          <div>
+                              <h3>Optimisation de la relation client</h3>
+                              <div class="detail-section">
+                                      <p>
+                                        <b>Fidélisez vos clients, faites-en des ambassadeurs.</b><br>
+                                        Nous structurons vos interactions pour mieux comprendre leurs besoins, améliorer la satisfaction et stimuler les ventes.<br>
+                                        Chaque contact devient une opportunité de croissance.
+                                      </p>
+                                </div>
+                          </div>
+                          <!-- <button class="back-button" onclick="event.stopPropagation(); flipCard(this.closest('.service-card'))">← Retour</button> -->
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Service 4 -->
+              <div class="service-card" onclick="flipCard(this)">
+                  <div class="card-inner">
+                      <div class="card-face card-front">
+                            <div class="icon">
+                              <img src="assets/images/ic4.png" alt="">
+                            </div>
+                          <h3>Stratégie Numérique</h3>
+                      </div>
+                      <div class="card-face card-back">
+                          <div>
+                              <h3>Stratégie numérique</h3>
+                              <div class="detail-section">
+                                      <p>
+                                        <b>Passez à la vitesse digitale.</b><br>
+                                        Nous identifions et intégrons les outils technologiques adaptés à votre entreprise : automatisation, gestion intelligente, données fiables.<br>
+                                        Moins de tâches manuelles, plus d’impact.
+                                      </p>
+                                </div>
+                          </div>
+                          <!-- <button class="back-button" onclick="event.stopPropagation(); flipCard(this.closest('.service-card'))">← Retour</button> -->
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Service 5 -->
+              <div class="service-card" onclick="flipCard(this)">
+                  <div class="card-inner">
+                      <div class="card-face card-front">
+                            <div class="icon">
+                              <img src="assets/images/ic5.png" alt="">
+                            </div>
+                          <h3>Optimisation du Modèle d’Affaires</h3>
+                      </div>
+                      <div class="card-face card-back">
+                          <div>
+                              <h3>Optimisation du modèle d’affaires</h3>
+                              <div class="detail-section">
+                              <p>
+                                <b>Repensez. Innovez. Diversifiez.</b><br>
+                                Nous vous aidons à explorer de nouveaux leviers de revenus et à renforcer la résilience de votre modèle économique.<br>
+                                Un accompagnement stratégique pour pérenniser votre croissance.
+                              </p>
+                                </div>
+                          </div>
+                          <!-- <button class="back-button" onclick="event.stopPropagation(); flipCard(this.closest('.service-card'))">← Retour</button> -->
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Service 6 -->
+              <div class="service-card" onclick="flipCard(this)">
+                  <div class="card-inner">
+                      <div class="card-face card-front">
+                            <div class="icon">
+                              <img src="assets/images/ic6.png" alt="">
+                            </div>
+                          <h3>Gestion des Talents & Ressources Humaines</h3>
+                      </div>
+                      <div class="card-face card-back">
+                          <div>
+                              <h3>Gestion des talents & ressources humaines</h3>
+                              <div class="detail-section">
+                                <p>
+                                  <b>Structurez votre équipe, développez son potentiel.</b><br>
+                                  Nous aidons à définir les bons rôles, intégrer efficacement les talents et instaurer une culture de performance durable.<br>
+                                  Des collaborateurs engagés pour une entreprise forte.
+                                </p>
+                                </div>
+                          </div>
+                          <!-- <button class="back-button" onclick="event.stopPropagation(); flipCard(this.closest('.service-card'))">← Retour</button> -->
+                      </div>
+                  </div>
+              </div>
+          </div>
+    </div>
+  </section>
+
+  <!-- offers -->
+  <section class="upcoming-meetings" id="offre">
+    <div class="container" style="margin-top:-160px; margin-bottom: -50px;">
+      <div class="row" id="performance">
+        <div class="col-lg-12">
+          <div class="section-heading">
+            <h2>Nos offres</h2>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="categories">
+            <h4>PERFORMANCE</h4>
+            <ul>
+              <li>Renforcer les capacités des PME pour stimuler leur croissance</li>
+              <li>adopter une mentalité de croissance</li>
+              <li>améliorer leur performance opérationnelle</li>
+              <li>devenir plus compétitives sur les marchés nationaux et internationaux.</li>
+              
+            </ul>
+            <div class="main-button-red">
+              <span></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="meeting-item">
+                <div class="thumb">
+                  <div class="price">
+                    
+                  </div>
+                  <a href="meeting-details.html"><img src="assets/images/p3.png" alt="New Lecturer Meeting"></a>
+                </div>
+                <div class="down-content">
+                  <div class="date">
+                    <h6>Offre<span>1</span></h6>
+                  </div>
+                  <a href="meeting-details.html"><h4>Formation à la carte</h4></a>
+                  <p>Diagnostic précis qui débouche sur un parcours de formation à la carte.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="meeting-item">
+                <div class="thumb">
+
+                  <a href="meeting-details.html"><img src="assets/images/p4.png" alt="Online Teaching"></a>
+                </div>
+                <div class="down-content">
+                  <div class="date">
+                    <h6>Offre <span>2</span></h6>
+                  </div>
+                  <a href="meeting-details.html"><h4>Coaching exécutif</h4></a>
+                  <p>Accompagnement pratique pour appliquer de nouvelles compétences.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="meeting-item">
+                <div class="thumb">
+                  <a href="meeting-details.html"><img src="assets/images/p5.png" alt="Higher Education"></a>
+                </div>
+                <div class="down-content">
+                  <div class="date">
+                    <h6>Offre <span>3</span></h6>
+                  </div>
+                  <a href="meeting-details.html"><h4>Monter en compétence</h4></a>
+                  <p>Une formation en cohorte conçue pour développer des compétences clés dans l’entrepreneuriat et la gestion.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="meeting-item">
+                <div class="thumb">
+                  <!-- <div class="price">
+                    <span>$48.00</span>
+                  </div> -->
+                  <a href="meeting-details.html"><img src="assets/images/img10.png" alt="Student Training"></a>
+                </div>
+                <div class="down-content">
+                  <div class="date">
+                    <h6>Offre <span>4</span></h6>
+                  </div>
+                  <a href="meeting-details.html"><h4>Accelération pour PME</h4></a>
+                  <p id="venture">Un programme intensif pour les petites et moyennes entreprises souhaitant structurer leur croissance.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+         <!-- -venture lab -->
+                              <!-- <h1 class="mb-5" style="text-align: left; font-size: 30px;"><span
+                            class="text-uppercase text-primary bg-light px-2" >E-Venture Lab</span></h1>
+                    
+                    <p class="mb-5" style="font-size: 1.1em; color:#f1f5f9; text-align: left;">Notre programme Eburnea Venture Lab consiste à créer et développer les entreprises porteuses : ce programme vise à concevoir, valider et
+financer de nouvelles entreprises innovantes dans des secteurs stratégiques pour l’Afrique.</p>
+                    <div class="d-flex align-items-center bg-light">
+                        <div class="btn-square flex-shrink-0 bg-primary" style="width: 100px; height: 100px;">
+                           
+                        </div> 
+                    </div> -->
+<section class="our-facts" >
+    <div class="container-fluid py-5" style="margin-top: -100px; margin-bottom: -100px;">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-4">
+
+          <div class="categories">
+            <h4>E-VENTURE LAB</h4>
+            <ul>
+              <li>Créer et développer les entreprises porteuses.</li>
+              <li>Concevoir, valider et financer de nouvelles entreprises innovantes dans des secteurs stratégiques pour l’Afrique.</li>
+              <li>Améliorer leur performance opérationnelle.</li>
+              <li>Devenir plus compétitives sur les marchés nationaux et internationaux.</li>
+            </ul>
+            <div class="main-button-red">
+              <span></span>
+            </div>
+         </div>
+                </div>
+                                 <div class="col-lg-8">
+                    <div class="row g-0">
+                        <div class="col-md-6 wow fadeIn" data-wow-delay="0.2s">
+                            <div class="service-item h-100 d-flex flex-column justify-content-center bg-primary">
+                                <a href="#!" class="service-img position-relative mb-4">
+                                    <img class="img-fluid w-100" src="assets/images/v1.png" alt="">
+                                    <h3>Identification</h3>
+                                </a>
+                                <p class="mb-0">Repérage des secteurs porteurs et des idées innovantes.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 wow fadeIn" data-wow-delay="0.4s">
+                            <div class="service-item h-100 d-flex flex-column justify-content-center bg-light">
+                                <a href="#!" class="service-img position-relative mb-4">
+                                    <img class="img-fluid w-100" src="assets/images/v2.png" alt="">
+                                    <h3>Validation</h3>
+                                </a>
+                                <p class="mb-0">Partenariat avec universités et acteurs de
+l’écosystème.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 wow fadeIn" data-wow-delay="0.6s">
+                            <div class="service-item h-100 d-flex flex-column justify-content-center bg-light">
+                                <a href="#!" class="service-img position-relative mb-4">
+                                    <img class="img-fluid w-100" src="assets/images/v3.png" alt="">
+                                    <h3>Formation</h3>
+                                </a>
+                                <p class="mb-0">Entrepreneurs formés et coachés.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 wow fadeIn" data-wow-delay="0.8s">
+                            <div class="service-item h-100 d-flex flex-column justify-content-center bg-primary">
+                                <a href="#!" class="service-img position-relative mb-4">
+                                    <img class="img-fluid w-100" src="assets/images/v4.png" alt="">
+                                    <h3>Incubation</h3>
+                                </a>
+                                <p class="mb-0">Accompagnement opérationnel, levée de fonds et mise en
+réseau.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- eventure lab End -->
+    <!-- <section class="upcoming-meetings" >
+    <div class="container" style="margin-top:-280px;">
       <div class="row">
         <div class="col-lg-12">
           <div class="section-heading">
-            <h2>Upcoming Meetings</h2>
+             <h2></h2>
           </div>
         </div>
         <div class="col-lg-4">
@@ -275,23 +1026,23 @@ https://templatemo.com/tm-569-edu-meeting
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
-  <section class="apply-now" id="apply">
+  <section class="apply-now" id="faq">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 align-self-center">
           <div class="row">
             <div class="col-lg-12">
               <div class="item">
-                <h3>APPLY FOR BACHELOR DEGREE</h3>
-                <p>You are allowed to use this edu meeting CSS template for your school or university or business. You can feel free to modify or edit this layout.</p>
+                <h3>Foire aux questions</h3>
+                <p>Trouvez des réponses rapides à vos questions sur nos programmes, nos accompagnements et nos voyages d’affaires..</p>
                 <div class="main-button-red">
-                  <div class="scroll-to-section"><a href="#contact">Join Us Now!</a></div>
+                  <div class="scroll-to-section"><a href="#contact">nous joindre</a></div>
               </div>
               </div>
             </div>
-            <div class="col-lg-12">
+            <!-- <div class="col-lg-12">
               <div class="item">
                 <h3>APPLY FOR BACHELOR DEGREE</h3>
                 <p>You are not allowed to redistribute the template ZIP file on any other template website. Please contact us for more information.</p>
@@ -299,63 +1050,83 @@ https://templatemo.com/tm-569-edu-meeting
                   <div class="scroll-to-section"><a href="#contact">Join Us Now!</a></div>
               </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="col-lg-6">
           <div class="accordions is-first-expanded">
             <article class="accordion">
                 <div class="accordion-head">
-                    <span>About Edu Meeting HTML Template</span>
+                    <span>À quel moment effectuons-nous le voyage à l’étranger ?</span>
                     <span class="icon">
                         <i class="icon fa fa-chevron-right"></i>
                     </span>
                 </div>
                 <div class="accordion-body">
                     <div class="content">
-                        <p>If you want to get the latest collection of HTML CSS templates for your websites, you may visit <a rel="nofollow" href="https://www.toocss.com/" target="_blank">Too CSS website</a>. If you need a working contact form script, please visit <a href="https://templatemo.com/contact" target="_parent">our contact page</a> for more info.</p>
+                        <p>Le voyage d’affaires se fait généralement à la fin du parcours de formation ou de coaching, lorsque les participants ont validé les étapes clés de préparation. Il s’agit d’une immersion stratégique destinée à rencontrer des partenaires, des investisseurs et à découvrir l’écosystème entrepreneurial canadien.</p>
                     </div>
                 </div>
             </article>
             <article class="accordion">
                 <div class="accordion-head">
-                    <span>HTML CSS Bootstrap Layout</span>
-                    <span class="icon">
+                    <span>Quels sont les coûts de nos programmes ?</span>
+                    <span class="icon" >
                         <i class="icon fa fa-chevron-right"></i>
                     </span>
                 </div>
                 <div class="accordion-body">
                     <div class="content">
-                        <p>Etiam posuere metus orci, vel consectetur elit imperdiet eu. Cras ipsum magna, maximus at semper sit amet, eleifend eget neque. Nunc facilisis quam purus, sed vulputate augue interdum vitae. Aliquam a elit massa.<br><br>
-                        Nulla malesuada elit lacus, ac ultricies massa varius sed. Etiam eu metus eget nibh consequat aliquet. Proin fringilla, quam at euismod porttitor, odio odio tempus ligula, ut feugiat ex erat nec mauris. Donec viverra velit eget lectus sollicitudin tincidunt.</p>
+                        <p>Les coûts varient selon le type d’accompagnement choisi : e-Performance pour le développement des entreprises existantes, ou e-Venture Lab pour la création de nouvelles entreprises. Chaque programme est modulable selon les besoins ; un devis personnalisé est proposé après un premier diagnostic gratuit. </p>
                     </div>
                 </div>
             </article>
             <article class="accordion">
                 <div class="accordion-head">
-                    <span>Please tell your friends</span>
+                    <span>Quel type de profil accompagnons-nous ?</span>
                     <span class="icon">
                         <i class="icon fa fa-chevron-right"></i>
                     </span>
                 </div>
                 <div class="accordion-body">
                     <div class="content">
-                        <p>Ut vehicula mauris est, sed sodales justo rhoncus eu. Morbi porttitor quam velit, at ullamcorper justo suscipit sit amet. Quisque at suscipit mi, non efficitur velit.<br><br>
-                        Cras et tortor semper, placerat eros sit amet, porta est. Mauris porttitor sapien et quam volutpat luctus. Nullam sodales ipsum ac neque ultricies varius.</p>
+                        <p>Eburnea Lab accompagne des entrepreneurs, des dirigeants de PME, des porteurs de projets et des cadres souhaitant renforcer leurs compétences managériales ou concrétiser une idée d’entreprise. L’objectif est de transformer les ambitions individuelles en projets solides et durables. </p>
                     </div>
                 </div>
             </article>
             <article class="accordion last-accordion">
                 <div class="accordion-head">
-                    <span>Share this to your colleagues</span>
+                    <span>Combien de temps dure une formation ou un accompagnement ?</span>
                     <span class="icon">
                         <i class="icon fa fa-chevron-right"></i>
                     </span>
                 </div>
                 <div class="accordion-body">
-                    <div class="content">
-                        <p>Maecenas suscipit enim libero, vel lobortis justo condimentum id. Interdum et malesuada fames ac ante ipsum primis in faucibus.<br><br>
-                        Sed eleifend metus sit amet magna tristique, posuere laoreet arcu semper. Nulla pellentesque ut tortor sit amet maximus. In eu libero ullamcorper, semper nisi quis, convallis nisi.</p>
+                    <div class="content">                    
+            <p>
+                La durée dépend du programme choisi.
+              <ul>
+                <li>Les formations intensives durent généralement entre 4 et 8 semaines,</li>
+                <li>Les parcours de coaching individuel s’étendent sur 3 à 6 mois,</li>
+                <li>Les programmes complets d’incubation (e-Venture Lab) peuvent aller jusqu’à 12 mois, incluant la phase d’immersion à l’étranger.</li>
+              </ul>
+            </p>
+                    </div>
+                </div>
+            </article>
+                        <article class="accordion last-accordion">
+                <div class="accordion-head">
+                    <span>Où se déroulent les voyages à l’étranger ?</span>
+                    <span class="icon">
+                        <i class="icon fa fa-chevron-right"></i>
+                    </span>
+                </div>
+                <div class="accordion-body">
+                    <div class="content">                    
+            <p>
+            Les destinations varient selon les objectifs du programme et les opportunités de partenariat.
+            Les participants peuvent être amenés à voyager dans la sous-région africaine, dans d’autres pays du continent, ou au Canada — en fonction de la nature du projet, du secteur d’activité et des besoins stratégiques de développement.
+            </p>
                     </div>
                 </div>
             </article>
@@ -365,277 +1136,293 @@ https://templatemo.com/tm-569-edu-meeting
     </div>
   </section>
 
-  <section class="our-courses" id="courses">
+  <section class="our-courses" id="equipe">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class="section-heading">
-            <h2>Our Popular Courses</h2>
+            <h2>Decouvrez notre équipe</h2>
           </div>
         </div>
         <div class="col-lg-12">
           <div class="owl-courses-item owl-carousel">
             <div class="item">
-              <img src="assets/images/course-01.jpg" alt="Course One">
+              <img src="assets/images/Octave.jpg" alt="Course One">
               <div class="down-content">
-                <h4>Morbi tincidunt elit vitae justo rhoncus</h4>
+                <h4>Octave Niamié, PhD,MBA</h4>
                 <div class="info">
                   <div class="row">
-                    <div class="col-8">
-                      <ul>
+                     <div class="col-8">
+                      <h4>Professeur agregré, Polytechnique Montréal</h4>
+                      <!-- <ul>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
-                      </ul>
-                    </div>
+                      </ul> -->
+                    </div> 
                     <div class="col-4">
-                       <span>$160</span>
+                       <span>Fondateur</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="item">
-              <img src="assets/images/course-02.jpg" alt="Course Two">
+              <img src="assets/images/Octave.jpg" alt="Course One">
               <div class="down-content">
-                <h4>Curabitur molestie dignissim purus vel</h4>
+                <h4>Octave Niamié, PhD,MBA</h4>
                 <div class="info">
                   <div class="row">
-                    <div class="col-8">
-                      <ul>
+                     <div class="col-8">
+                      <h4>Professeur agregré, Polytechnique Montréal</h4>
+                      <!-- <ul>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
-                      </ul>
-                    </div>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                      </ul> -->
+                    </div> 
                     <div class="col-4">
-                       <span>$180</span>
+                       <span>Fondateur</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="item">
-              <img src="assets/images/course-03.jpg" alt="">
+              <img src="assets/images/Octave.jpg" alt="Course One">
               <div class="down-content">
-                <h4>Nulla at ipsum a mauris egestas tempor</h4>
+                <h4>Octave Niamié, PhD,MBA</h4>
                 <div class="info">
                   <div class="row">
-                    <div class="col-8">
-                      <ul>
+                     <div class="col-8">
+                      <h4>Professeur agregré, Polytechnique Montréal</h4>
+                      <!-- <ul>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
-                      </ul>
-                    </div>
+                        <li><i class="fa fa-star"></i></li>
+                      </ul> -->
+                    </div> 
                     <div class="col-4">
-                       <span>$140</span>
+                       <span>Fondateur</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="item">
-              <img src="assets/images/course-04.jpg" alt="">
+              <img src="assets/images/Octave.jpg" alt="Course One">
               <div class="down-content">
-                <h4>Aenean molestie quis libero gravida</h4>
+                <h4>Octave Niamié, PhD,MBA</h4>
                 <div class="info">
                   <div class="row">
-                    <div class="col-8">
-                      <ul>
+                     <div class="col-8">
+                      <h4>Professeur agregré, Polytechnique Montréal</h4>
+                      <!-- <ul>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
-                      </ul>
-                    </div>
+                      </ul> -->
+                    </div> 
                     <div class="col-4">
-                       <span>$120</span>
+                       <span>Fondateur</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> 
+            <div class="item">
+              <img src="assets/images/Octave.jpg" alt="Course One">
+              <div class="down-content">
+                <h4>Octave Niamié, PhD,MBA</h4>
+                <div class="info">
+                  <div class="row">
+                     <div class="col-8">
+                      <h4>Professeur agregré, Polytechnique Montréal</h4>
+                      <!-- <ul>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                      </ul> -->
+                    </div> 
+                    <div class="col-4">
+                       <span>Fondateur</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="item">
-              <img src="assets/images/course-01.jpg" alt="">
+              <img src="assets/images/Octave.jpg" alt="Course One">
               <div class="down-content">
-                <h4>Lorem ipsum dolor sit amet adipiscing elit</h4>
+                <h4>Octave Niamié, PhD,MBA</h4>
                 <div class="info">
                   <div class="row">
-                    <div class="col-8">
-                      <ul>
+                     <div class="col-8">
+                      <h4>Professeur agregré, Polytechnique Montréal</h4>
+                      <!-- <ul>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
-                      </ul>
-                    </div>
+                      </ul> -->
+                    </div> 
                     <div class="col-4">
-                       <span>$250</span>
+                       <span>Fondateur</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="item">
-              <img src="assets/images/course-02.jpg" alt="">
+              <img src="assets/images/Octave.jpg" alt="Course One">
               <div class="down-content">
-                <h4>TemplateMo is the best website for Free CSS</h4>
+                <h4>Octave Niamié, PhD,MBA</h4>
                 <div class="info">
                   <div class="row">
-                    <div class="col-8">
-                      <ul>
+                     <div class="col-8">
+                      <h4>Professeur agregré, Polytechnique Montréal</h4>
+                      <!-- <ul>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
-                      </ul>
-                    </div>
+                      </ul> -->
+                    </div> 
                     <div class="col-4">
-                       <span>$270</span>
+                       <span>Fondateur</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="item">
-              <img src="assets/images/course-03.jpg" alt="">
+              <img src="assets/images/Octave.jpg" alt="Course One">
               <div class="down-content">
-                <h4>Web Design Templates at your finger tips</h4>
+                <h4>Octave Niamié, PhD,MBA</h4>
                 <div class="info">
                   <div class="row">
-                    <div class="col-8">
-                      <ul>
+                     <div class="col-8">
+                      <h4>Professeur agregré, Polytechnique Montréal</h4>
+                      <!-- <ul>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
-                      </ul>
-                    </div>
+                      </ul> -->
+                    </div> 
                     <div class="col-4">
-                       <span>$340</span>
+                       <span>Fondateur</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>            
+
+            <div class="item">
+              <img src="assets/images/Octave.jpg" alt="Course One">
+              <div class="down-content">
+                <h4>Octave Niamié, PhD,MBA</h4>
+                <div class="info">
+                  <div class="row">
+                     <div class="col-8">
+                      <h4>Professeur agregré, Polytechnique Montréal</h4>
+                      <!-- <ul>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                      </ul> -->
+                    </div> 
+                    <div class="col-4">
+                       <span>Fondateur</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="item">
-              <img src="assets/images/course-04.jpg" alt="">
+              <img src="assets/images/Octave.jpg" alt="Course One">
               <div class="down-content">
-                <h4>Please visit our website again</h4>
+                <h4>Octave Niamié, PhD,MBA</h4>
                 <div class="info">
                   <div class="row">
-                    <div class="col-8">
-                      <ul>
+                     <div class="col-8">
+                      <h4>Professeur agregré, Polytechnique Montréal</h4>
+                      <!-- <ul>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
-                      </ul>
-                    </div>
+                      </ul> -->
+                    </div> 
                     <div class="col-4">
-                       <span>$360</span>
+                       <span>Fondateur</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="item">
-              <img src="assets/images/course-01.jpg" alt="">
+              <img src="assets/images/Octave.jpg" alt="Course One">
               <div class="down-content">
-                <h4>Responsive HTML Templates for you</h4>
+                <h4>Octave Niamié, PhD,MBA</h4>
                 <div class="info">
                   <div class="row">
-                    <div class="col-8">
-                      <ul>
+                     <div class="col-8">
+                      <h4>Professeur agregré, Polytechnique Montréal</h4>
+                      <!-- <ul>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
-                      </ul>
-                    </div>
+                      </ul> -->
+                    </div> 
                     <div class="col-4">
-                       <span>$400</span>
+                       <span>Fondateur</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="item">
-              <img src="assets/images/course-02.jpg" alt="">
+              <img src="assets/images/Octave.jpg" alt="Course One">
               <div class="down-content">
-                <h4>Download Free CSS Layouts for your business</h4>
+                <h4>Octave Niamié, PhD,MBA</h4>
                 <div class="info">
                   <div class="row">
-                    <div class="col-8">
-                      <ul>
+                     <div class="col-8">
+                      <h4>Professeur agregré, Polytechnique Montréal</h4>
+                      <!-- <ul>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
-                      </ul>
-                    </div>
+                      </ul> -->
+                    </div> 
                     <div class="col-4">
-                       <span>$430</span>
+                       <span>Fondateur</span>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="item">
-              <img src="assets/images/course-03.jpg" alt="">
-              <div class="down-content">
-                <h4>Morbi in libero blandit lectus cursus</h4>
-                <div class="info">
-                  <div class="row">
-                    <div class="col-8">
-                      <ul>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                      </ul>
-                    </div>
-                    <div class="col-4">
-                       <span>$480</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <img src="assets/images/course-04.jpg" alt="">
-              <div class="down-content">
-                <h4>Curabitur molestie dignissim purus</h4>
-                <div class="info">
-                  <div class="row">
-                    <div class="col-8">
-                      <ul>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                      </ul>
-                    </div>
-                    <div class="col-4">
-                       <span>$560</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </div>            
           </div>
         </div>
       </div>
@@ -648,20 +1435,20 @@ https://templatemo.com/tm-569-edu-meeting
         <div class="col-lg-6">
           <div class="row">
             <div class="col-lg-12">
-              <h2>A Few Facts About Our University</h2>
+              <h2>Pourquoi nous choisir ?</h2>
             </div>
             <div class="col-lg-6">
               <div class="row">
                 <div class="col-12">
-                  <div class="count-area-content percentage">
-                    <div class="count-digit">94</div>
-                    <div class="count-title">Succesed Students</div>
+                  <div class="count-area-content">
+                    <div class="count-digit">20</div>
+                    <div class="count-title">Années d’expérience combinée</div>
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="count-area-content">
-                    <div class="count-digit">126</div>
-                    <div class="count-title">Current Teachers</div>
+                    <div class="count-digit">8</div>
+                    <div class="count-title">Experts multidisciplinaires</div>
                   </div>
                 </div>
               </div>
@@ -670,14 +1457,14 @@ https://templatemo.com/tm-569-edu-meeting
               <div class="row">
                 <div class="col-12">
                   <div class="count-area-content new-students">
-                    <div class="count-digit">2345</div>
-                    <div class="count-title">New Students</div>
+                   <div class="count-digit">50</div>
+                    <div class="count-title">Entrepreneurs accompagnés</div>
                   </div>
                 </div> 
                 <div class="col-12">
                   <div class="count-area-content">
-                    <div class="count-digit">32</div>
-                    <div class="count-title">Awards</div>
+                    <div class="count-digit">5</div>
+                    <div class="count-title">Programmes de formation actifs</div>
                   </div>
                 </div>
               </div>
@@ -702,31 +1489,41 @@ https://templatemo.com/tm-569-edu-meeting
               <form id="contact" action="" method="post">
                 <div class="row">
                   <div class="col-lg-12">
-                    <h2>Let's get in touch</h2>
+                    <h2>Parlez-nous de vous!</h2>
                   </div>
-                  <div class="col-lg-4">
+                  <div class="col-lg-3">
                     <fieldset>
-                      <input name="name" type="text" id="name" placeholder="YOURNAME...*" required="">
+                      <input name="name" type="text" id="name" placeholder="Votre nom ...*" required="">
                     </fieldset>
                   </div>
-                  <div class="col-lg-4">
+                  <div class="col-lg-3">
                     <fieldset>
-                    <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="YOUR EMAIL..." required="">
+                      <input name="name" type="text" id="name" placeholder="Prénom(s) ...*" required="">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-3">
+                    <fieldset>
+                    <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Votre Email..." required="">
                   </fieldset>
                   </div>
-                  <div class="col-lg-4">
+                  <div class="col-lg-3">
                     <fieldset>
-                      <input name="subject" type="text" id="subject" placeholder="SUBJECT...*" required="">
+                      <input name="phone" type="tel" id="phone" placeholder="Votre numéro de téléphone..*" required="">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-6">
+                    <fieldset>
+                      <input name="entreprise" type="text" id="entreprise" placeholder="Nom de votre entreprise...*" required="">
                     </fieldset>
                   </div>
                   <div class="col-lg-12">
                     <fieldset>
-                      <textarea name="message" type="text" class="form-control" id="message" placeholder="YOUR MESSAGE..." required=""></textarea>
+                      <textarea name="message" type="text" class="form-control" id="message" placeholder="Quelles sont vos attentes?..." required=""></textarea>
                     </fieldset>
                   </div>
                   <div class="col-lg-12">
                     <fieldset>
-                      <button type="submit" id="form-submit" class="button">SEND MESSAGE NOW</button>
+                      <button type="submit" id="form-submit" class="button">Envoyez votre message</button>
                     </fieldset>
                   </div>
                 </div>
@@ -738,20 +1535,20 @@ https://templatemo.com/tm-569-edu-meeting
           <div class="right-info">
             <ul>
               <li>
-                <h6>Phone Number</h6>
-                <span>010-020-0340</span>
+                <h6>Numéro de téléphone</h6>
+                <span>+1(514)02020202 / +225(27)010-020-0340</span>
               </li>
               <li>
-                <h6>Email Address</h6>
-                <span>info@meeting.edu</span>
+                <h6>Email</h6>
+                <span>eburnealab.com </span>
               </li>
               <li>
-                <h6>Street Address</h6>
-                <span>Rio de Janeiro - RJ, 22795-008, Brazil</span>
+                <h6>Adresse</h6>
+                <span>Abidjan / Montréal</span>
               </li>
               <li>
                 <h6>Website URL</h6>
-                <span>www.meeting.edu</span>
+                <span>www.eburnea.com</span>
               </li>
             </ul>
           </div>
@@ -759,15 +1556,9 @@ https://templatemo.com/tm-569-edu-meeting
       </div>
     </div>
     <div class="footer">
-      <p>Copyright © 2022 Edu Meeting Co., Ltd. All Rights Reserved. 
-          <br>
-          Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a>
-          <br>
-          Distibuted By: <a href="https://themewagon.com" target="_blank" title="Build Better UI, Faster">ThemeWagon</a>
-        </p>
+      <p>Copyright © 2025 Eburnea, Ltd. All Rights Reserved. 
     </div>
   </section>
-
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -781,6 +1572,10 @@ https://templatemo.com/tm-569-edu-meeting
     <script src="assets/js/slick-slider.js"></script>
     <script src="assets/js/custom.js"></script>
     <script>
+
+              function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
         //according to loftblog tut
         $('.nav li:first').addClass('active');
 
@@ -825,6 +1620,29 @@ https://templatemo.com/tm-569-edu-meeting
         $(window).scroll(function () {
           checkSection();
         });
+                // Configuration de l'Intersection Observer
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px'
+        };
+
+        // Callback pour déclencher l'animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    // Une fois animé, on arrête d'observer pour que l'animation reste
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observer les éléments
+        const imageWrapper = document.getElementById('aboutImageWrapper');
+        const content = document.getElementById('aboutContent');
+
+        observer.observe(imageWrapper);
+        observer.observe(content);
     </script>
 </body>
 

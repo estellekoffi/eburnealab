@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parcours de Formation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #ffffff 0%, #d7ebe9 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .journey-container {
+            max-width: 1400px;
+            width: 100%;
+            position: relative;
+        }
+
+        .journey-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #0d6b68;
+            font-weight: 700;
+            margin-bottom: 60px;
+        }
+
+        .journey-path {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto auto;
+            gap: 60px 40px;
+            align-items: center;
+        }
+
+        /* Carte d'étape */
+        .step-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px 30px;
+            box-shadow: 0 10px 30px rgba(13, 107, 104, 0.15);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #d7ebe9;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(13, 107, 104, 0.25);
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            background: #0d6b68;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .step-title {
+            font-size: 1.4rem;
+            color: #0d6b68;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .step-description {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Positionnement des étapes */
+        .step-1 { grid-column: 1; grid-row: 1; }
+        .step-2 { grid-column: 2; grid-row: 1; }
+        .step-3 { grid-column: 3; grid-row: 1; }
+        .step-4 { grid-column: 3; grid-row: 2; }
+
+        /* Objectif final (cercle) */
+        .goal-circle {
+            grid-column: 1;
+            grid-row: 2;
+            background: linear-gradient(135deg, #0d6b68 0%, #0a5653 100%);
+            border-radius: 50%;
+            width: 280px;
+            height: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px;
+            box-shadow: 0 15px 50px rgba(13, 107, 104, 0.4);
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .goal-circle::before {
+            content: '';
+            position: absolute;
+            inset: -50%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: rotate 4s linear infinite;
+        }
+
+        .goal-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .goal-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .goal-title {
+            font-size: 1.4rem;
+            color: white;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .goal-description {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.5;
+        }
+
+        /* Flèches animées */
+        .arrow {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .arrow-line {
+            width: 60px;
+            height: 3px;
+            background: #0d6b68;
+            position: relative;
+        }
+
+        .arrow-head {
+            width: 0;
+            height: 0;
+            border-left: 12px solid #0d6b68;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+        }
+
+        .arrow-vertical .arrow-line {
+            width: 3px;
+            height: 80px;
+        }
+
+        .arrow-vertical .arrow-head {
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 12px solid #0d6b68;
+            border-bottom: none;
+        }
+
+        /* Animation de pulsation */
+        .arrow-pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes rotate {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Positionnement des flèches */
+        .arrow-1-2 {
+            top: 50%;
+            left: calc(33.33% + 20px);
+            transform: translateY(-50%);
+        }
+
+        .arrow-2-3 {
+            top: 50%;
+            left: calc(66.66% + 20px);
+            transform: translateY(-50%);
+        }
+
+        .arrow-3-4 {
+            top: calc(50% + 60px);
+            right: calc(16.66% - 30px);
+            transform: translateX(50%);
+        }
+
+        .arrow-4-goal {
+            bottom: calc(50% - 80px);
+            left: calc(50% - 30px);
+            transform: rotate(180deg);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .journey-path {
+                grid-template-columns: 1fr 1fr;
+                gap: 50px 30px;
+            }
+
+            .step-1 { grid-column: 1; grid-row: 1; }
+            .step-2 { grid-column: 2; grid-row: 1; }
+            .step-3 { grid-column: 1; grid-row: 2; }
+            .step-4 { grid-column: 2; grid-row: 2; }
+            .goal-circle { grid-column: 1 / -1; grid-row: 3; }
+
+            .arrow { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .journey-title {
+                font-size: 2rem;
+            }
+
+            .journey-path {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .step-1, .step-2, .step-3, .step-4 {
+                grid-column: 1;
+            }
+
+            .step-1 { grid-row: 1; }
+            .step-2 { grid-row: 2; }
+            .step-3 { grid-row: 3; }
+            .step-4 { grid-row: 4; }
+            .goal-circle { grid-row: 5; width: 250px; height: 250px; }
+
+            .step-card {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="journey-container">
+        <h1 class="journey-title">Votre Parcours de Formation</h1>
+        
+        <div class="journey-path">
+            <!-- Étape 1 -->
+            <div class="step-card step-1">
+                <div class="step-number">1</div>
+                <h3 class="step-title">Diagnostiquer les besoins</h3>
+                <p class="step-description">Analyse des besoins et des objectifs.</p>
+            </div>
+
+            <!-- Flèche 1 → 2 -->
+            <div class="arrow arrow-1-2">
+                <div class="arrow-line arrow-pulse"></div>
+                <div class="arrow-head arrow-pulse"></div>
+            </div>
+
+            <!-- Étape 2 -->
+            <div class="step-card step-2">
+                <div class="step-number">2</div>
+                <h3 class="step-title">Élaborer un plan de formation</h3>
+                <p class="step-description">Création d'un plan personnalisé.</p>
+            </div>
+
+            <!-- Flèche 2 → 3 -->
+            <div class="arrow arrow-2-3">
+                <div class="arrow-line arrow-pulse"></div>
+                <div class="arrow-head arrow-pulse"></div>
+            </div>
+
+            <!-- Étape 3 -->
+            <div class="step-card step-3">
+                <div class="step-number">3</div>
+                <h3 class="step-title">Exécuter le plan</h3>
+                <p class="step-description">Mise en œuvre des séances et ateliers.</p>
+            </div>
+
+            <!-- Flèche 3 → 4 (verticale) -->
+            <div class="arrow arrow-vertical arrow-3-4">
+                <div class="arrow-line arrow-pulse"></div>
+                <div class="arrow-head arrow-pulse"></div>
+            </div>
+
+            <!-- Étape 4 -->
+            <div class="step-card step-4">
+                <div class="step-number">4</div>
+                <h3 class="step-title">Coaching d'application</h3>
+                <p class="step-description">Application des compétences acquises.</p>
+            </div>
+
+            <!-- Flèche 4 → Objectif -->
+            <div class="arrow arrow-4-goal">
+                <div class="arrow-line arrow-pulse"></div>
+                <div class="arrow-head arrow-pulse"></div>
+            </div>
+
+            <!-- Objectif final -->
+            <div class="goal-circle">
+                <div class="goal-content">
+                    <div class="goal-icon">🎓</div>
+                    <h3 class="goal-title">Attestation de réussite</h3>
+                    <p class="goal-description">Montée en compétences validée.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

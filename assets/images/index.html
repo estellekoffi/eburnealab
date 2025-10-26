@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Eburnea Lab</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Space+Grotesk&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid sticky-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light border-bottom border-2 border-white">
+<!--     
+                <a href="index.html" class="navbar-brand">
+                    <h1>Eburnea Lab</h1>
+                </a> -->
+                <a href="index.html" class="navbar-brand d-inline-flex align-items-center gap-2">
+                <img
+                    src="img/logo.png"  
+                    alt="Eburnea Lab"
+                    class="brand-mark"
+                    width="120" height="70" loading="lazy">
+                <span class="brand-text">Eburnea Lab</span>
+                </a>
+                <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <a href="index.html" class="nav-item nav-link active">Accueil</a>
+                        <a href="#about" class="nav-item nav-link">Notre mission</a>
+                        <a href="#offres" class="nav-item nav-link">Nos offres</a>
+                        <a href="#team" class="nav-item nav-link">Notre equipe</a>
+                        <!-- <div class="nav-item dropdown">
+                            <a href="#!" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                             <div class="dropdown-menu bg-light mt-2"> 
+                                <a href="feature.html" class="dropdown-item">Features</a>
+                                <a href="team.html" class="dropdown-item">Our Team</a>
+                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                                <a href="404.html" class="dropdown-item">404 Page</a>
+                            </div>
+                        </div> -->
+                        <a href="#contact" class="nav-item nav-link">Contactez-nous</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Hero Start -->
+    <div class="container-fluid pb-5 hero-header bg-light mb-5">
+         <!-- <div class="hero-header">
+            <video autoplay muted loop playsinline id="bg-video">
+                <source src="img/video.mp4" type="video/mp4">
+            </video>
+            <div class="overlay"></div>
+            <div class="content">
+                <h1>Bienvenue à Eburnea Lab</h1>
+                <p>Connecter, innover, transformer.</p>
+            </div>
+        </div> -->
+
+        <div class="container py-5">
+             <video autoplay muted loop playsinline id="bg-video">
+                <source src="img/v5.mp4" type="video/mp4">
+            </video>
+            <div class="row g-5 align-items-center mb-5">
+                <div class="col-lg-6">
+                    <h1 class="display-1 mb-4 animated slideInRight">Lancer des  <span class="text-primary"> entreprises </span>
+                       solides</h1>
+                    <h5 class="d-inline-block border border-2 border-white py-3 px-5 mb-0 animated slideInRight">
+                        Réseau, mentors, financement.</h5>
+                </div>
+                <div class="col-lg-6">
+                    <div class="owl-carousel header-carousel animated fadeIn">
+                        <img class="img-fluid" src="img/img1.png" alt="">
+                        <img class="img-fluid" src="img/img2.png" alt="">
+                        <img class="img-fluid" src="img/img3.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="row g-5 animated fadeIn">
+                <div class="col-md-6 col-lg-3">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
+                            <i class="fa fa-robot text-primary"></i>
+                        </div>
+                        <h5 class="lh-base mb-0">E-Performance</h5>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
+                            <i class="fa fa-robot text-primary"></i>
+                        </div>
+                        <h5 class="lh-base mb-0">Venture Lab</h5>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
+                            <i class="fa fa-robot text-primary"></i>
+                        </div>
+                        <h5 class="lh-base mb-0">Diagnostic express</h5>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
+                            <i class="fa fa-robot text-primary"></i>
+                        </div>
+                        <h5 class="lh-base mb-0" id="about">Accès Canada</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero End -->
+
+
+    <!-- About Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-6 wow fadeIn" data-wow-delay="0.1s">
+                            <img class="img-fluid" src="img/img7.png" alt="">
+                        </div>
+                        <div class="col-6 wow fadeIn" data-wow-delay="0.3s">
+                            <img class="img-fluid h-75" src="img/img8.png" alt="">
+                            <div class="h-25 d-flex align-items-center text-center bg-primary px-4">
+                                <h4 class="text-white lh-base mb-0">Diagnostics, coaching, cohorte</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <h1 class="mb-5"><span class="text-uppercase text-primary bg-light px-2">Notre mission</span>
+                    </h1>
+                    <p class="mb-4">Nous croyons que l’Afrique regorge de talents et d’opportunités inexploitées. Pourtant, beaucoup
+de PME restent freinées par un manque de vision, de compétences pratiques et d’accès aux
+financements. </p>
+                    <p class="mb-5">Notre mission est d’outiller les dirigeants, de transformer les organisations et de
+créer de nouvelles entreprises porteuses capables de rivaliser sur les marchés locaux et
+internationaux.</p>
+                    <!-- <div class="row g-3">
+                        <div class="col-sm-6">
+                            <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>Award Winning</h6>
+                            <h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i>Professional Staff</h6>
+                        </div>
+                        <div class="col-sm-6">
+                            <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>24/7 Support</h6>
+                            <h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i>Fair Prices</h6>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mt-5">
+                        <a class="btn btn-primary px-4 me-2" href="#!">Read More</a>
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
+                                class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
+                                class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2" href="#!"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+    <!-- Project Start -->
+    <div class="container-fluid top-100" style="margin-top: 100px;margin-bottom: 100px;">
+        <div class="container-fluid">
+            <div class="row g-0">
+                <div class="col-lg-12 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="d-flex flex-column justify-content-center bg-primary h-100 p-5 text-center">
+                        <h1 class="text-white mb-12 text-center">Commencez le  <span
+                                class="text-uppercase text-primary bg-light px-2">diagnostic !</span></h1>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-7">
+                    <div class="row g-0">
+                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.2s">
+                            <div class="project-item position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/project-1.jpg" alt="">
+                                <a class="project-overlay text-decoration-none" href="#!">
+                                    <h4 class="text-white">Kitchen</h4>
+                                    <small class="text-white">72 Projects</small>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                            <div class="project-item position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/project-2.jpg" alt="">
+                                <a class="project-overlay text-decoration-none" href="#!">
+                                    <h4 class="text-white">Bathroom</h4>
+                                    <small class="text-white">67 Projects</small>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.4s">
+                            <div class="project-item position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/project-3.jpg" alt="">
+                                <a class="project-overlay text-decoration-none" href="#!">
+                                    <h4 class="text-white">Bedroom</h4>
+                                    <small class="text-white">53 Projects</small>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                            <div class="project-item position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/project-4.jpg" alt="">
+                                <a class="project-overlay text-decoration-none" href="#!">
+                                    <h4 class="text-white">Living Room</h4>
+                                    <small class="text-white">33 Projects</small>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.6s">
+                            <div class="project-item position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/project-5.jpg" alt="">
+                                <a class="project-overlay text-decoration-none" href="#!">
+                                    <h4 class="text-white">Furniture</h4>
+                                    <small class="text-white">87 Projects</small>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.7s">
+                            <div class="project-item position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/project-6.jpg" alt="">
+                                <a class="project-overlay text-decoration-none" href="#!">
+                                    <h4 class="text-white">Rennovation</h4>
+                                    <small class="text-white">69 Projects</small>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- Project End -->
+    <!-- Feature Start -->
+    <div class="container-fluid py-5" id="choose">
+        <div class="container">
+            <div class="text-center wow fadeIn" data-wow-delay="0.1s">
+                <h1 class="mb-5">Pourquoi <span class="text-uppercase text-primary bg-light px-2">nous choisir</span>
+                </h1>
+            </div>
+            <div class="row g-5 align-items-center text-center">
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                    <i class="fa fa-calendar-alt fa-5x text-primary mb-4"></i>
+                    <h4>Diagnostic sur mesure</h4>
+                    <p class="mb-0">On évalue vos priorités et bâtit un plan d’action concret.</p>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                    <i class="fa fa-tasks fa-5x text-primary mb-4"></i>
+                    <h4>Coaching qui exécute</h4>
+                    <p class="mb-0">Accompagnement terrain, application immédiate, suivi par objectifs.</p>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                    <i class="fa fa-pencil-ruler fa-5x text-primary mb-4"></i>
+                    <h4>Cohortes + voyage Canada</h4>
+                    <p class="mb-0">Sessions en groupe et immersion partenaires au Canada.</p>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                    <i class="fa fa-hand-holding-usd fa-5x text-primary mb-4"></i>
+                    <h4>Accès au financement</h4>
+                    <p class="mb-0">Préparation dossiers, mises en relation investisseurs/banques.</p>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                    <i class="fa fa-user fa-5x text-primary mb-4"></i>
+                    <h4>Venture Lab (validation)</h4>
+                    <p class="mb-0">Venture Lab (validation)
+Idéation, tests marché, incubation puis préparation à la levée.</p>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                    <i class="fa fa-check fa-5x text-primary mb-4"></i>
+                    <h4>Réseau Afrique–Canada</h4>
+                    <p class="mb-0">Experts, mentors et entreprises pour ouvrir des opportunités.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature End -->
+
+
+    <!-- Project Start -->
+    <div class="container-fluid top-100" style="margin-top: 100px;" id="offres">
+        <div class="container-fluid">
+            <div class="row g-0">
+                <div class="col-lg-12 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="d-flex flex-column justify-content-center bg-primary h-100 p-5 text-center">
+                        <h1 class="text-white mb-12 text-center">Découvrez <span
+                                class="text-uppercase text-primary bg-light px-2">nos offres</span></h1>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-7">
+                    <div class="row g-0">
+                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.2s">
+                            <div class="project-item position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/project-1.jpg" alt="">
+                                <a class="project-overlay text-decoration-none" href="#!">
+                                    <h4 class="text-white">Kitchen</h4>
+                                    <small class="text-white">72 Projects</small>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                            <div class="project-item position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/project-2.jpg" alt="">
+                                <a class="project-overlay text-decoration-none" href="#!">
+                                    <h4 class="text-white">Bathroom</h4>
+                                    <small class="text-white">67 Projects</small>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.4s">
+                            <div class="project-item position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/project-3.jpg" alt="">
+                                <a class="project-overlay text-decoration-none" href="#!">
+                                    <h4 class="text-white">Bedroom</h4>
+                                    <small class="text-white">53 Projects</small>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                            <div class="project-item position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/project-4.jpg" alt="">
+                                <a class="project-overlay text-decoration-none" href="#!">
+                                    <h4 class="text-white">Living Room</h4>
+                                    <small class="text-white">33 Projects</small>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.6s">
+                            <div class="project-item position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/project-5.jpg" alt="">
+                                <a class="project-overlay text-decoration-none" href="#!">
+                                    <h4 class="text-white">Furniture</h4>
+                                    <small class="text-white">87 Projects</small>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.7s">
+                            <div class="project-item position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/project-6.jpg" alt="">
+                                <a class="project-overlay text-decoration-none" href="#!">
+                                    <h4 class="text-white">Rennovation</h4>
+                                    <small class="text-white">69 Projects</small>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- Project End -->
+
+
+    <!-- Service Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
+                    <h1 class="mb-5"><span
+                            class="text-uppercase text-primary bg-light px-2">E-PERFORMANCE</span></h1>
+                    
+                    <p class="mb-5">Renforcer les capacités des PME pour stimuler leur croissance : ce vise à aider les PME
+ivoiriennes à adopter une mentalité de croissance, améliorer leur performance opérationnelle pour
+devenir plus compétitives sur les marchés nationaux et internationaux.</p>
+                    <div class="d-flex align-items-center bg-light">
+                        <div class="btn-square flex-shrink-0 bg-primary" style="width: 100px; height: 100px;">
+                          
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="row g-0">
+                        <div class="col-md-6 wow fadeIn" data-wow-delay="0.2s">
+                            <div class="service-item h-100 d-flex flex-column justify-content-center bg-primary">
+                                <a href="#!" class="service-img position-relative mb-4">
+                                    <img class="img-fluid w-100" src="img/p3.png" alt="">
+                                    <h3>Formation à la carte</h3>
+                                </a>
+                                <p class="mb-0">diagnostic précis qui débouche sur un parcours de formation à la
+carte.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 wow fadeIn" data-wow-delay="0.4s">
+                            <div class="service-item h-100 d-flex flex-column justify-content-center bg-light">
+                                <a href="#!" class="service-img position-relative mb-4">
+                                    <img class="img-fluid w-100" src="img/p4.png" alt="">
+                                    <h3>Coaching individuel</h3>
+                                </a>
+                                <p class="mb-0">accompagnement pratique pour appliquer directement les nouvelles
+compétences.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 wow fadeIn" data-wow-delay="0.6s">
+                            <div class="service-item h-100 d-flex flex-column justify-content-center bg-light">
+                                <a href="#!" class="service-img position-relative mb-4">
+                                    <img class="img-fluid w-100" src="img/p5.png" alt="">
+                                    <h3>Formation en cohorte</h3>
+                                </a>
+                                <p class="mb-0">parcours type accélérateur portant sur : vision stratégique,
+gouvernance, finance, transformation numérique, leadership.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 wow fadeIn" data-wow-delay="0.8s">
+                            <div class="service-item h-100 d-flex flex-column justify-content-center bg-primary">
+                                <a href="#!" class="service-img position-relative mb-4">
+                                    <img class="img-fluid w-100" src="img/p6.png" alt="">
+                                    <h3>Voyage d’affaires au Canada</h3>
+                                </a>
+                                <p class="mb-0">visites d’entreprises et rencontres de partenaires potentiels
+pour inspirer et connecter les dirigeants (pour la cohorte).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
+         <!-- Service Start -->
+    <div class="container-fluid py-5" style="margin-top: -150px;">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+
+                <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
+                    <h1 class="mb-5"><span
+                            class="text-uppercase text-primary bg-light px-2">E-Venture Lab</span></h1>
+                    
+                    <p class="mb-5">Créer et développer les entreprises porteuses : ce programme vise à concevoir, valider et
+financer de nouvelles entreprises innovantes dans des secteurs stratégiques pour l’Afrique.</p>
+                    <div class="d-flex align-items-center bg-light">
+                        <div class="btn-square flex-shrink-0 bg-primary" style="width: 100px; height: 100px;">
+                           
+                        </div>
+                    </div>
+                </div>
+                                 <div class="col-lg-7">
+                    <div class="row g-0">
+                        <div class="col-md-6 wow fadeIn" data-wow-delay="0.2s">
+                            <div class="service-item h-100 d-flex flex-column justify-content-center bg-primary">
+                                <a href="#!" class="service-img position-relative mb-4">
+                                    <img class="img-fluid w-100" src="img/v1.png" alt="">
+                                    <h3>Identification des opportunités</h3>
+                                </a>
+                                <p class="mb-0">repérage des secteurs porteurs et des idées innovantes.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 wow fadeIn" data-wow-delay="0.4s">
+                            <div class="service-item h-100 d-flex flex-column justify-content-center bg-light">
+                                <a href="#!" class="service-img position-relative mb-4">
+                                    <img class="img-fluid w-100" src="img/v2.png" alt="">
+                                    <h3>Validation académique et terrain</h3>
+                                </a>
+                                <p class="mb-0">partenariat avec universités et acteurs de
+l’écosystème.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 wow fadeIn" data-wow-delay="0.6s">
+                            <div class="service-item h-100 d-flex flex-column justify-content-center bg-light">
+                                <a href="#!" class="service-img position-relative mb-4">
+                                    <img class="img-fluid w-100" src="img/v3.png" alt="">
+                                    <h3>Formation et constitution d’équipes</h3>
+                                </a>
+                                <p class="mb-0">entrepreneurs formés et coachés.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 wow fadeIn" data-wow-delay="0.8s">
+                            <div class="service-item h-100 d-flex flex-column justify-content-center bg-primary">
+                                <a href="#!" class="service-img position-relative mb-4">
+                                    <img class="img-fluid w-100" src="img/v4.png" alt="">
+                                    <h3>Incubation et financement</h3>
+                                </a>
+                                <p class="mb-0">accompagnement opérationnel, levée de fonds et mise en
+réseau.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
+
+
+    <!-- Team Start -->
+    <div class="container-fluid bg-light py-5" id="team">
+        <div class="container py-5">
+            <h1 class="mb-5">Notre <span class="text-uppercase text-primary bg-light px-2">équipe</span>
+            </h1>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="team-item position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="img/team-1.jpg" alt="">
+                        <div class="team-overlay">
+                            <small class="mb-2">Conseiller</small>
+                            <h4 class="lh-base text-light">Boris Johnson</h4>
+                            <div class="d-flex justify-content-center">
+                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="team-item position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="img/team-2.jpg" alt="">
+                        <div class="team-overlay">
+                            <small class="mb-2">Architect</small>
+                            <h4 class="lh-base text-light">Donald Pakura</h4>
+                            <div class="d-flex justify-content-center">
+                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="team-item position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="img/team-3.jpg" alt="">
+                        <div class="team-overlay">
+                            <small class="mb-2">Architect</small>
+                            <h4 class="lh-base text-light">Bradley Gordon</h4>
+                            <div class="d-flex justify-content-center">
+                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                    <div class="team-item position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="img/team-4.jpg" alt="">
+                        <div class="team-overlay">
+                            <small class="mb-2">Architect</small>
+                            <h4 class="lh-base text-light">Alexander Bell</h4>
+                            <div class="d-flex justify-content-center">
+                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+    <!-- Project Start -->
+    <div class="container-fluid top-100" style="margin-bottom: 100px;margin-top: 100px;">
+        <div class="container ">
+            <div class="row g-0">
+                <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="d-flex flex-column justify-content-center bg-primary h-100 p-5 ">
+                        <h1 class="text-white mb-12 ">Rejoignez la prochaine <span
+                                class="text-uppercase text-primary bg-light px-2">cohorte !</span></h1>
+                    </div>
+                </div>
+                 <div class="col-lg-7">
+                    <div class="row g-0">
+                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.2s">
+                            <div class="project-item position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/img1.png" alt="">
+                                <a class="project-overlay text-decoration-none" href="#!">
+                                   
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                            <div class="project-item position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/img2.png" alt="">
+                                <a class="project-overlay text-decoration-none" href="#!">
+                                  
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.4s">
+                            <div class="project-item position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/p1.png" alt="">
+                                <a class="project-overlay text-decoration-none" href="#!">
+                                    
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                            <div class="project-item position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/v1.png" alt="">
+                                <a class="project-overlay text-decoration-none" href="#!">
+                                    
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.6s">
+                            <div class="project-item position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/img6.png" alt="">
+                                <!-- <a class="project-overlay text-decoration-none" href="#!">
+                                    <h4 class="text-white">Furniture</h4>
+                                    <small class="text-white">87 Projects</small>
+                                </a> -->
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.7s">
+                            <div class="project-item position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/v3.png" alt="">
+                               
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <!-- Project End -->
+
+    <!-- Testimonial Start 
+    <div class="container-xxl py-5">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-md-12 col-lg-9">
+                    <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay="0.2s">
+                        <div class="testimonial-item">
+                            <div class="row g-5 align-items-center">
+                                <div class="col-md-6">
+                                    <div class="testimonial-img">
+                                        <img class="img-fluid" src="img/testimonial-1.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="testimonial-text pb-5 pb-md-0">
+                                        <h3>Sustainable Material</h3>
+                                        <p>Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed
+                                            stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna
+                                            dolore erat
+                                            amet</p>
+                                        <h5 class="mb-0">Boris Johnson</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="row g-5 align-items-center">
+                                <div class="col-md-6">
+                                    <div class="testimonial-img">
+                                        <img class="img-fluid" src="img/testimonial-2.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="testimonial-text pb-5 pb-md-0">
+                                        <h3>Customer Satisfaction</h3>
+                                        <p>Clita erat ipsum et lorem et sit, sed
+                                            stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna
+                                            dolore erat
+                                            amet</p>
+                                        <h5 class="mb-0">Alexander Bell</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="row g-5 align-items-center">
+                                <div class="col-md-6">
+                                    <div class="testimonial-img">
+                                        <img class="img-fluid" src="img/testimonial-3.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="testimonial-text pb-5 pb-md-0">
+                                        <h3>Budget Friendly</h3>
+                                        <p>Diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed
+                                            stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna
+                                            dolore erat
+                                            amet</p>
+                                        <h5 class="mb-0">Bradley Gordon</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    Testimonial End -->
+
+
+    <!-- Newsletter Start -->
+    <div id="contact" class="container-fluid bg-primary newsletter p-0">
+        <div class="container p-0">
+            <div class="row g-0 align-items-center">
+                <div class="col-md-5 ps-lg-0 text-start wow fadeIn" data-wow-delay="0.2s">
+                    <img class="img-fluid w-100" src="img/k.png" alt="">
+                </div>
+                <div class="col-md-7 py-5 newsletter-text wow fadeIn" data-wow-delay="0.5s">
+                    <div class="p-5">
+                        <h1 class="mb-5">Souscrivez à notre <span
+                                class="text-uppercase text-primary bg-white px-2">infolettre</span></h1>
+                        <div class="position-relative w-100 mb-2">
+                            <input class="form-control border-0 w-100 ps-4 pe-5" type="text"
+                                placeholder="Entrez votre e-mail" style="height: 60px;">
+                            <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-2 me-2"><i
+                                    class="fa fa-paper-plane text-primary fs-4"></i></button>
+                        </div>
+                        <p class="mb-0">Soyez informés en temps réel.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Newsletter End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white-50 footer pt-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                <a href="index.html" class="navbar-brand d-inline-flex align-items-center gap-2">
+                <img
+                    src="img/logo.png"  
+                    alt="Eburnea Lab"
+                    class="brand-mark"
+                    width="120" height="70" loading="lazy" style="background-color: white;">
+                <span class="brand-text">Eburnea Lab</span>
+                </a>
+                    <p class="mb-0">Conseil & accélération : diagnostic, coaching, cohorte (E-Performance) et Venture Lab.</p>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                    <h5 class="text-white mb-4">Comment nous joindre:</h5>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>Abidjan / Montréal</p>
+                    <p><i class="fa fa-phone-alt me-3"></i>Numero Whatsapp : 00225 00 01 01 01 01</p>
+                    <p>
+                        <i class="fa fa-envelope me-3"></i>
+                        <a href="mailto:eburnealab@cohorte.ci"
+                            class="text-reset text-decoration-none">
+                            eburnealab@cohorte.ci
+                        </a>
+                    </p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
+                                class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
+                                class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
+                                class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                    <h5 class="text-white mb-4">Liens rapides</h5>
+                    <a class="btn btn-link" href="#about">Notre mission</a>
+                    <a class="btn btn-link" href="#offres">Nos offres</a>
+                    <a class="btn btn-link" href="#choose">Pourquoi nous choisir</a>
+                    <a class="btn btn-link" href="#team">Notre équipe</a>
+                    <a class="btn btn-link" href="#!">Contacts</a>
+                </div>
+                <!-- <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                    <h5 class="text-white mb-4">Our Services</h5>
+                    <a class="btn btn-link" href="#!">Interior Design</a>
+                    <a class="btn btn-link" href="#!">Project Planning</a>
+                    <a class="btn btn-link" href="#!">Renovation</a>
+                    <a class="btn btn-link" href="#!">Implement</a>
+                    <a class="btn btn-link" href="#!">Landscape Design</a>
+                </div> -->
+            </div>
+        </div>
+        <div class="container wow fadeIn" data-wow-delay="0.1s">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#!">Eburnea Lab</a>, All Right Reserved.
+
+                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
+                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
+                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
+                        <!-- Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>. Distributed by
+                        <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a> -->
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <!-- <div class="footer-menu">
+                            <a href="#!">Home</a>
+                            <a href="#!">Cookies</a>
+                            <a href="#!">Help</a>
+                            <a href="#!">FAQs</a>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#!" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

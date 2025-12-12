@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postuler - Eburnea Lab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+html, body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  background-color: #fff;
+  font-size: 16px;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+        /* Bouton retour */
+        .back-button {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-5px);
+        }
+
+        .back-button::before {
+            content: '←';
+            font-size: 1.2rem;
+        }
+
+        .application-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+        }
+
+        /* Section gauche avec animation */
+        .hero-section {
+            background: linear-gradient(135deg, #093d3c 0%, #081312 100%);
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animation géométrique */
+        .geometric-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            right: -50px;
+            animation: float-rotate 20s infinite ease-in-out;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            bottom: 100px;
+            left: -50px;
+            animation: float-rotate 15s infinite ease-in-out reverse;
+        }
+
+        .shape-3 {
+            width: 150px;
+            height: 150px;
+            top: 40%;
+            right: 10%;
+            animation: float-rotate 18s infinite ease-in-out;
+            animation-delay: 2s;
+        }
+
+        @keyframes float-rotate {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(30px, -30px) rotate(120deg);
+            }
+            66% {
+                transform: translate(-20px, 30px) rotate(240deg);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            max-width: 500px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1rem;
+            opacity: 0.95;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .info-list {
+            list-style: none;
+            margin-top: 3rem;
+        }
+
+        .info-list li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .info-list li::before {
+            content: '→';
+            color: #4ade80;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Section droite avec formulaire */
+        .form-section {
+            background: white;
+            padding: 4rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-header {
+            margin-bottom: 3rem;
+        }
+
+        .form-header .label {
+            display: inline-block;
+            background: rgba(13, 107, 104, 0.1);
+            color: #0D6B68;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-header h2 {
+            font-size: 2rem;
+            color: #1f272b;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .form-header p {
+            color: #6b7280;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Form styling */
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #1f272b;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .required {
+            color: #ef4444;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-bottom: 2px solid #e5e7eb;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+            background: transparent;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-bottom-color: #0D6B68;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .form-group textarea:focus {
+            border-color: #0D6B68;
+        }
+
+        /* Programme cards */
+        .section-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #1f272b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .programme-grid {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .programme-card {
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .programme-card:hover {
+            border-color: #0D6B68;
+            transform: translateX(5px);
+        }
+
+        .programme-card.selected {
+            border-color: #0D6B68;
+            background: rgba(13, 107, 104, 0.02);
+        }
+
+        .programme-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .programme-check {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #9ca3af;
+            border-radius: 6px;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .programme-card.selected .programme-check {
+            background: #0D6B68;
+            border-color: #0D6B68;
+        }
+
+        .programme-card.selected .programme-check::after {
+            content: '✓';
+            position: absolute;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .programme-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1f272b;
+        }
+
+        .programme-description {
+            color: #6b7280;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .programme-options {
+            display: none;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 1rem;
+        }
+
+        .programme-card.selected .programme-options {
+            display: block;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: start;
+            gap: 0.8rem;
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .option-item:hover {
+            background: rgba(13, 107, 104, 0.05);
+        }
+
+        .option-item input[type="radio"],
+        .option-item input[type="checkbox"] {
+            margin-top: 0.2rem;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #0D6B68;
+        }
+
+        .option-content {
+            flex: 1;
+        }
+
+        .option-title {
+            font-weight: 600;
+            color: #1f272b;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .option-description {
+            font-size: 0.85rem;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+
+        /* Submit button */
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: #0D6B68;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 2rem;
+        }
+
+        .submit-btn:hover {
+            background: #094d4a;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(13, 107, 104, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .application-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .back-button {
+                top: 1rem;
+                left: 1rem;
+                font-size: 0.85rem;
+                padding: 0.6rem 1.2rem;
+            }
+
+            .hero-section {
+                min-height: 50vh;
+                padding: 3rem 2rem;
+            }
+
+            .form-section {
+                padding: 3rem 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .form-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .form-header h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Bouton retour -->
+    <a href="index.html" class="back-button">Retour à l'accueil</a>
+
+    <div class="application-wrapper">
+        <!-- Section gauche -->
+        <div class="hero-section">
+            <div class="geometric-bg">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+
+            <div class="hero-content">
+                <h1>Candidature<br>Programme<br>Eburnea Lab</h1>
+                <p class="subtitle">Rejoignez notre écosystème et bénéficiez d'un accompagnement sur mesure pour développer votre projet entrepreneurial.</p>
+
+                <ul class="info-list">
+                    <li>Accompagnement personnalisé</li>
+                    <li>Accès à un réseau d'experts</li>
+                    <li>Opportunités de financement</li>
+                    <li>Formation continue</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section droite - Formulaire -->
+        <div class="form-section">
+            <div class="form-header">
+                <span class="label">Formulaire de candidature</span>
+                <h2>Rejoignez Eburnea Lab</h2>
+                <p>Remplissez ce formulaire pour postuler à nos programmes d'accompagnement</p>
+            </div>
+
+            <form id="applicationForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nom <span class="required">*</span></label>
+                        <input type="text" name="nom" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Prénom(s) <span class="required">*</span></label>
+                        <input type="text" name="prenom" placeholder="Votre prénom" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Email <span class="required">*</span></label>
+                        <input type="email" name="email" placeholder="exemple@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Téléphone</label>
+                        <input type="tel" name="telephone" placeholder="+225">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Entreprise</label>
+                    <input type="text" name="entreprise" placeholder="Nom de votre entreprise (si applicable)">
+                </div>
+
+                <h3 class="section-title">Sélectionnez votre programme</h3>
+
+                <div class="programme-grid">
+                    <!-- E-Performance -->
+                    <div class="programme-card" onclick="selectProgramme(this, 'performance')">
+                        <div class="programme-header">
+                            <div class="programme-check"></div>
+                            <div class="programme-title">E-Performance PME</div>
+                        </div>
+                        <p class="programme-description">Programme d'accompagnement pour PME souhaitant renforcer leurs capacités et accélérer leur croissance.</p>
+                        
+                        <div class="programme-options">
+                            <label class="option-item">
+                                <input type="checkbox" name="performance_option" value="formation_carte">
+                                <div class="option-content">
+                                    <div class="option-title">Formation à la carte</div>
+                                    <div class="option-description">Parcours personnalisé selon vos besoins</div>
+                                </div>
+                            </label>
+
+                            <label class="option-item">
+                                <input type="checkbox" name="performance_option" value="coaching_executif">
+                                <div class="option-content">
+                                    <div class="option-title">Coaching exécutif</div>
+                                    <div class="option-description">Accompagnement individuel pour dirigeants</div>
+                                </div>
+                            </label>
+
+                            <label class="option-item">
+                                <input type="checkbox" name="performance_option" value="montee_competence">
+                                <div class="option-content">
+                                    <div class="option-title">Montée en compétence</div>
+                                    <div class="option-description">Formation intensive en cohorte</div>
+                                </div>
+                            </label>
+
+                            <label class="option-item">
+                                <input type="checkbox" name="performance_option" value="acceleration_pme">
+                                <div class="option-content">
+                                    <div class="option-title">Accélération PME</div>
+                                    <div class="option-description">Programme de croissance rapide</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- E-Venture Lab -->
+                    <div class="programme-card" onclick="selectProgramme(this, 'venture')">
+                        <div class="programme-header">
+                            <div class="programme-check"></div>
+                            <div class="programme-title">E-Venture Lab</div>
+                        </div>
+                        <p class="programme-description">Programme de création et développement d'entreprises à fort potentiel avec encadrement complet.</p>
+                        
+                        <div class="programme-options">
+                            <label class="option-item">
+                                <input type="radio" name="venture_option" value="sans_idee">
+                                <div class="option-content">
+                                    <div class="option-title">Entrepreneur en résidence</div>
+                                    <div class="option-description">Sans idée de projet, explorez avec nous</div>
+                                </div>
+                            </label>
+
+                            <label class="option-item">
+                                <input type="radio" name="venture_option" value="avec_projet">
+                                <div class="option-content">
+                                    <div class="option-title">Avec projet existant</div>
+                                    <div class="option-description">Développez votre projet avec notre soutien</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Vos attentes et objectifs <span class="required">*</span></label>
+                    <textarea name="attentes" placeholder="Décrivez votre projet, vos ambitions et ce que vous attendez de ce programme..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Soumettre ma candidature</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let selectedProgramme = null;
+
+        function selectProgramme(card, type) {
+            if (selectedProgramme === type && card.classList.contains('selected')) {
+                card.classList.remove('selected');
+                selectedProgramme = null;
+                return;
+            }
+
+            document.querySelectorAll('.programme-card').forEach(c => {
+                c.classList.remove('selected');
+            });
+
+            card.classList.add('selected');
+            selectedProgramme = type;
+
+            event.stopPropagation();
+        }
+
+        document.querySelectorAll('.option-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        });
+
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            if (!selectedProgramme) {
+                alert('⚠️ Veuillez sélectionner un programme.');
+                return;
+            }
+
+            if (selectedProgramme === 'performance') {
+                const checked = document.querySelectorAll('input[name="performance_option"]:checked');
+                if (checked.length === 0) {
+                    alert('⚠️ Sélectionnez au moins une formation.');
+                    return;
+                }
+            }
+
+            if (selectedProgramme === 'venture') {
+                const checked = document.querySelector('input[name="venture_option"]:checked');
+                if (!checked) {
+                    alert('⚠️ Choisissez votre profil.');
+                    return;
+                }
+            }
+
+            alert('✅ Candidature envoyée avec succès !');
+            this.reset();
+            document.querySelectorAll('.programme-card').forEach(c => c.classList.remove('selected'));
+            selectedProgramme = null;
+        });
+    </script>
+</body>
+</html>

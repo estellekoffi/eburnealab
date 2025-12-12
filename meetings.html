@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="assets/css/templatemo-edu-meeting.css">
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/lightbox.css">
+      <link rel="stylesheet" href="assets/css/style.css">
 <!--
 
 TemplateMo 569 Edu Meeting
@@ -57,40 +58,32 @@ https://templatemo.com/tm-569-edu-meeting
   </div>
 
   <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
-      <div class="container">
-          <div class="row">
-              <div class="col-12">
-                  <nav class="main-nav">
-                      <!-- ***** Logo Start ***** -->
-                      <a href="index.html" class="logo">
-                          Edu Meeting
-                      </a>
-                      <!-- ***** Logo End ***** -->
-                      <!-- ***** Menu Start ***** -->
-                      <ul class="nav">
-                          <li><a href="index.html">Home</a></li>
-                          <li><a href="meetings.html" class="active">Meetings</a></li>
-                          <li><a href="index.html">Apply Now</a></li>
-                          <li class="has-sub">
-                              <a href="javascript:void(0)">Pages</a>
-                              <ul class="sub-menu">
-                                  <li><a href="meetings.html">Upcoming Meetings</a></li>
-                                  <li><a href="meeting-details.html">Meeting Details</a></li>
-                              </ul>
-                          </li>
-                          <li><a href="index.html">Courses</a></li> 
-                          <li><a href="index.html">Contact Us</a></li> 
-                      </ul>        
-                      <a class='menu-trigger'>
-                          <span>Menu</span>
-                      </a>
-                      <!-- ***** Menu End ***** -->
-                  </nav>
-              </div>
-          </div>
-      </div>
-  </header>
+    <nav>
+        <div class="logo">
+            <!-- <div class="logo-icon"></div> -->
+            <span>Eburnea Lab</span>
+        </div> 
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li ><a href="index.html#accueil" class="active" onclick="closeMenu()">Accueil</a></li>
+            <li><a href="index.html#mission" onclick="closeMenu()">Mission</a></li>
+            <li ><a href="#service" onclick="closeMenu()">Services</a></li>
+            <li class="has-sub">
+                <a href="index.html#programme">Programmes</a>
+                <ul class="sub-menu">
+                    <li><a href="index.html#performance" onclick="closeMenu()">E-performance</a></li>
+                    <li><a href="index.html#venture" onclick="closeMenu()">E-venture Lab</a></li>
+                </ul>
+            </li>
+            <li ><a href="index.html#equipe" onclick="closeMenu()">Equipe</a></li> 
+            <li ><a href="index.html#contact" onclick="closeMenu()">Contactez-nous</a></li> 
+            <li><a href="index.html#faq" onclick="closeMenu()">FaQ</a></li>
+        </ul>
+    </nav>
   <!-- ***** Header Area End ***** -->
 
   <section class="heading-page header-text" id="top">

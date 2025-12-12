@@ -34,7 +34,7 @@ font & reset css
 reset
 --------------------------------------------- 
 */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, div
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, div,
 pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q,
 s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
 figure, header, nav, section, article, aside, footer, figcaption {
@@ -71,7 +71,7 @@ ul, li {
   list-style: none;
 }
 
-header, nav, section, article, aside, footer, hgroup {
+header, section, article, aside, footer, hgroup {
   display: block;
 }
 
@@ -848,7 +848,7 @@ services
 }
  
 .services .item {
-  background-color: #eee;
+  background-color: white;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -962,7 +962,7 @@ upcoming meetings
 */
 
 section.upcoming-meetings {
-  background-image: url(../images/meetings-bg.jpg);
+  background-color: #eee; 
   background-position: center center;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -976,28 +976,22 @@ section.upcoming-meetings .section-heading {
 }
 
 section.upcoming-meetings .categories {
-  background-color: #fff;
   border-radius: 20px;
   padding: 40px;
   margin-right: 45px;
 }
 section.our-facts .categories {
-  background-color: #fff;
   border-radius: 20px;
   padding: 40px;
   margin-right: 45px;
 }
 section.our-facts .categories h4 {
-  font-size: 18px;
-  font-weight: 600;
-  color: #1f272b;
   margin-bottom: 30px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #1f272b;;
 }
 section.our-facts .categories ul li span {
   font-size: 15px;
-  color: #1f272b;
   font-weight: 500;
   transition: all .3s;
 }
@@ -1007,9 +1001,6 @@ section.our-facts .categories ul li {
 }
 
 section.upcoming-meetings .categories h4 {
-  font-size: 18px;
-  font-weight: 600;
-  color: #1f272b;
   margin-bottom: 30px;
   padding-bottom: 20px;
   border-bottom: 1px solid #eee;
@@ -1022,7 +1013,7 @@ section.upcoming-meetings .categories ul li {
 
 section.upcoming-meetings .categories ul li span {
   font-size: 15px;
-  color: #1f272b;
+  color: #dae2e5;
   font-weight: 500;
   transition: all .3s;
 }
@@ -1067,7 +1058,8 @@ section.upcoming-meetings .categories .main-button-red a {
   font-weight: 600;
   background-color: rgba(250,250,250,0.9);
   padding: 7px 12px;
-  border-radius: 10px;
+  border-radius: 10px ;
+  
 }
 
 .meeting-item .down-content {
@@ -1122,7 +1114,8 @@ apply now
 */
 
 section.apply-now {
-  background-image: url(../images/apply-bg.jpg);
+  /* background-image: url(../images/apply-bg.jpg); */
+  background-color: #eee;
   background-position: center center;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -1131,13 +1124,15 @@ section.apply-now {
 }
 
 section.apply-now .item {
-  background-color: rgba(250,250,250,0.15);
+  background-color: rgb(58, 65, 64);
   padding: 40px;
   margin-bottom: 30px;
+  height: 400px;
 }
 
 section.apply-now .item h3 {
   color: #fff;
+  text-align: center;
   text-transform: uppercase;
   font-size: 24px;
   font-weight: 700;
@@ -1146,7 +1141,10 @@ section.apply-now .item h3 {
 
 section.apply-now .item p {
   color: #fff;
-  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1em;
+  margin-bottom: 40px;
+  margin-top: 40px;
 }
 
 .accordions {
@@ -1362,6 +1360,14 @@ section.our-facts {
   padding: 140px 0px 125px 0px;
 }
 
+section.our-fact {
+  background-image: url(../images/m2.png);
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 140px 0px 125px 0px;
+}
 section.our-facts h2 {
   font-size: 38px;
   color: #fff;
@@ -1777,7 +1783,18 @@ section.meetings-page .pagination ul li a:hover {
 .meeting-single-item .down-content .share ul li a:hover {
   color: #f5a425;
 }
-
+.card-img {
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+ }
 /* Meeting item column */
 .templatemo-item-col {
 	width: 31%;
@@ -1908,6 +1925,98 @@ responsive
     margin-bottom: 30px;
   }
 
+}
+/* Responsive pour section.our-facts .categories */
+@media (max-width: 992px) {
+  section.our-facts .categories {
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  section.our-facts .categories {
+    padding: 30px 20px;
+    margin-right: 0;
+  }
+  
+  section.our-facts .categories h4 {
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+  }
+  
+  section.our-facts .categories ul li {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  section.our-facts .categories ul li span {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  section.our-facts .categories {
+    padding: 20px 15px;
+    border-radius: 15px;
+  }
+  
+  section.our-facts .categories h4 {
+    font-size: 15px;
+  }
+}
+/* Responsive our-facts categories */
+section.our-facts .categories {
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 1200px) {
+  section.our-facts .categories {
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  section.our-facts .categories {
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  section.our-facts .categories {
+    padding: 30px 20px;
+    border-radius: 15px;
+  }
+  
+  section.our-facts .categories h4 {
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+  }
+  
+  section.our-facts .categories ul li {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  section.our-facts .categories ul li span {
+    font-size: 14px;
+    display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  section.our-facts .categories {
+    padding: 25px 15px;
+  }
+  
+  section.our-facts .categories h4 {
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
 }
 
 @media (max-width: 767px) {

@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Template Mo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <title>Montée en compétences</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-edu-meeting.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/lightbox.css">
+      <link rel="stylesheet" href="assets/css/style.css">
+<!--
+
+TemplateMo 569 Edu Meeting
+
+https://templatemo.com/tm-569-edu-meeting
+
+-->
+  </head>
+ <style>
+
+
+        .title {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #3a3535;
+            font-weight: 700;
+            margin-bottom: 80px;
+        }
+
+        /* Grille des modules */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 100px;
+            position: relative;
+        }
+
+        /* Carte de module */
+        .module-card {
+            background-color: rgb(59, 58, 58);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(13, 107, 104, 0.3);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .module-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(3, 60, 58, 0.8);
+        }
+
+        /* Zone pour l'icône/image */
+        .module-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, rgba(13, 107, 104, 0.3) 0%, rgba(13, 107, 104, 0.1) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            border: 2px solid rgba(13, 107, 104, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Si tu veux ajouter une image, utilise cette classe */
+        .module-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .module-icon::before {
+            content: '';
+            position: absolute;
+            inset: -50%;
+            background: conic-gradient(from 0deg, transparent, rgba(13, 107, 104, 0.3), transparent);
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .module-title {
+            font-size: 1.2rem;
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .module-subtitle {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.5;
+        }
+
+        /* Lignes de connexion lumineuses */
+        .connection-line {
+            position: absolute;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(16, 17, 17, 0.8) 50%, 
+                transparent 100%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .line-horizontal {
+            height: 2px;
+            width: calc(33.33% - 80px);
+        }
+
+        .line-vertical {
+            width: 2px;
+            height: 60px;
+        }
+
+        /* Flèches animées entre modules */
+        .arrow-glow {
+            position: absolute;
+            z-index: 1;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                opacity: 0.3;
+                filter: drop-shadow(0 0 5px rgba(13, 107, 104, 0.5));
+            }
+            50% {
+                opacity: 1;
+                filter: drop-shadow(0 0 15px rgba(13, 107, 104, 1));
+            }
+        }
+
+        .arrow-right {
+            width: 40px;
+            height: 40px;
+            top: 50%;
+            left: calc(33.33% - 20px);
+            transform: translateY(-50%);
+        }
+
+        .arrow-right::before {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 3px;
+            background: #1d1f1f;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            box-shadow: 0 0 10px #1b1c1c;
+        }
+
+        .arrow-right::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 15px solid black;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            filter: drop-shadow(0 0 8px black);
+        }
+
+        .arrow-down {
+            width: 40px;
+            height: 40px;
+            top: calc(100% + 30px);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .arrow-down::before {
+            content: '';
+            position: absolute;
+            width: 3px;
+            height: 25px;
+            background: black;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            box-shadow: 0 0 10px black;
+        }
+
+        .arrow-down::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 15px solid black;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            filter: drop-shadow(0 0 8px black);
+        }
+
+        /* Flèche vers l'attestation */
+        .final-arrow {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+            position: relative;
+            height: 80px;
+        }
+
+        .final-arrow-shape {
+            width: 60px;
+            height: 60px;
+            position: relative;
+            animation: pulse-glow 1.5s ease-in-out infinite;
+        }
+
+        .final-arrow-shape::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 50px;
+            background: black;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            box-shadow: 0 0 15px black;
+        }
+
+        .final-arrow-shape::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 20px solid black;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            filter: drop-shadow(0 0 12px black);
+        }
+
+        
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .modules-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .arrow-glow {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .title {
+                font-size: 2rem;
+                margin-bottom: 50px;
+            }
+
+            .modules-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .attestation-circle {
+                width: 300px;
+                height: 300px;
+                padding: 40px;
+            }
+
+            .attestation-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Section Déroulement */
+        .deroulement {
+            background: white;
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .step-card {
+            background:white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            transition: all 0.4s ease;
+            border: 2px solid #e0f2ef;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(90, 159, 147, 0.2);
+            border-color: #0c0c0c;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: black;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            box-shadow: 0 4px 15px rgba(90, 159, 147, 0.3);
+        }
+
+        .step-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .step-description {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+
+
+       
+
+        @keyframes rotate {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .timeline {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 968px) {
+            h2 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .steps-wrapper::before {
+                display: none;
+            }
+
+            .attestation-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+        }
+
+        @media (max-width: 640px) {
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            .timeline {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .step-card {
+                padding: 30px 20px;
+            }
+
+            .attestation-visual {
+                padding: 40px 30px;
+            }
+
+            .cta-button {
+                padding: 16px 30px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Animations au chargement */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step-card {
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .step-card:nth-child(1) { animation-delay: 0.1s; }
+        .step-card:nth-child(2) { animation-delay: 0.2s; }
+        .step-card:nth-child(3) { animation-delay: 0.3s; }
+        .step-card:nth-child(4) { animation-delay: 0.4s; }
+        
+    </style>
+
+<body>
+
+   
+
+  <!-- Sub Header -->
+  <div class="sub-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-sm-8">
+          <div class="left-content">
+            <p>Montée en compétences</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-4">
+          <div class="right-icons">
+            <ul>
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-behance"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ***** Header Area Start ***** -->
+    <nav>
+        <div class="logo">
+            <!-- <div class="logo-icon"></div> -->
+            <span>Eburnea Lab</span>
+        </div> 
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li ><a href="index.html#accueil" class="active" onclick="closeMenu()">Accueil</a></li>
+            <li><a href="index.html#mission" onclick="closeMenu()">Mission</a></li>
+            <li ><a href="index.html#service" onclick="closeMenu()">Services</a></li>
+            <li class="has-sub">
+                <a href="index.html#programme">Programmes</a>
+                <ul class="sub-menu">
+                    <li><a href="index.html#performance" onclick="closeMenu()">E-performance</a></li>
+                    <li><a href="index.html#venture" onclick="closeMenu()">E-venture Lab</a></li>
+                </ul>
+            </li>
+            <li ><a href="index.html#equipe" onclick="closeMenu()">Equipe</a></li> 
+            <li ><a href="index.html#contact" onclick="closeMenu()">Contactez-nous</a></li> 
+            <li><a href="index.html#faq" onclick="closeMenu()">FaQ</a></li>
+        </ul>
+    </nav>
+  <!-- ***** Header Area End ***** -->
+
+  <section class="heading-page header-text" id="top" >
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2>Montée en compétences</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="meetings-page" id="meetings" style="margin-top: -150px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="meeting-single-item">
+                <div class="thumb">
+                  <div class="price">
+                  </div>
+                  <div class="date">
+                    <h6>P-PME <span>3</span></h6>
+                  </div>
+                  <div>
+                    <img src="assets/images/m2.png" alt=""></a>
+                  </div>
+                  
+                </div>
+                <div class="down-content">
+                  <h4>Montée en compétences</h4>
+                  <p>Renforcez vos capacités entrepreneuriales grâce à des modules pratiques et certifiants.
+                   Ce programme s’adresse aux dirigeants engagés dans le développement continu, autant pour leurs équipes que pour eux-mêmes, dans des domaines clés de la gestion et de la croissance d’entreprise. Chaque participant choisit le ou les modules correspondant à ses besoins, et reçoit une attestation à la fin de la formation.</p>
+               <div class="container" style="margin-top: 100px;">
+        <h1 class="title">Nos modules de formation</h1>
+
+        <!-- Grille des modules -->
+        <div class="modules-grid">
+            <!-- Module 1 -->
+            <div class="module-card">
+
+                <h3 class="module-title">Marketing</h3>
+            </div>
+
+            <!-- Module 2 -->
+            <div class="module-card">
+
+                <h3 class="module-title">Stratégie d'entreprise</h3>
+            </div>
+
+            <!-- Module 3 -->
+            <div class="module-card">
+
+                <h3 class="module-title">Gestion financière</h3>
+            </div>
+
+            <!-- Module 4 -->
+            <div class="module-card">
+
+                <h3 class="module-title">Innovation</h3>
+            </div>
+
+            <!-- Module 5 -->
+            <div class="module-card">
+
+                <h3 class="module-title">Transformation numérique</h3>
+            </div>
+
+            <!-- Module 6 -->
+            <div class="module-card">
+
+                <h3 class="module-title">Leadership</h3>
+            </div>
+        </div>
+
+        <!-- Flèche vers l'attestation
+        <div class="final-arrow">
+            <div class="final-arrow-shape"></div>
+        </div> -->
+
+        <!-- Attestation finale -->
+        <!-- <div class="attestation-section">
+            <div class="attestation-circle">
+                <div class="attestation-icon"> -->
+                    <!-- Ajoute ton image ici : <img src="chemin/vers/icone-diplome.png" alt="Attestation"> -->
+                    
+                <!-- </div>
+                <h2 class="attestation-title">Attestation finale</h2>
+                <p class="attestation-subtitle">Parcours complété avec succès</p>
+            </div>
+        </div> -->
+    </div>
+   <section class="deroulement" >
+        <h2 style="text-align: center; font-size: 1.5rem; color: #3a3535; font-weight: 700;">Déroulement de la formation</h2><br><br>
+       
+
+        <div class="steps-wrapper">
+            <div class="timeline">
+                <!-- Étape 1 -->
+                <div class="step-card">
+                    <div class="step-number">1</div>
+               
+                    <h3 class="step-title">Choix du module</h3>
+                    <p class="step-description">Sélectionnez les thèmes selon vos besoins et objectifs professionnels.</p>
+                </div>
+
+                <!-- Étape 2 -->
+                <div class="step-card">
+                    <div class="step-number">2</div>
+         
+                    <h3 class="step-title">Suivi de la formation</h3>
+                    <p class="step-description">Cours dynamiques et cas concrets pour une apprentissage actif.</p>
+                </div>
+
+                <!-- Étape 3 -->
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                  
+                    <h3 class="step-title">Mise en pratique</h3>
+                    <p class="step-description">Accompagnement personnalisé pour appliquer vos nouvelles compétences. À la demande</p>
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </section>
+
+
+                     <!-- Flèches vers l'objectif -->
+        <div class="goal-arrow-container">
+            <div class="vertical-arrow">
+                <div class="arrow-down-shape"></div>
+                <div class="arrow-down-shape"></div>
+            </div>
+        </div>
+
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="main-button-red">
+                <a href="form.html">Postulez </a>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>Copyright © 2025 Eburnea Lab; All Rights Reserved. 
+      </p>
+    </div>
+  </section>
+  <section>
+
+  </section>
+
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/lightbox.js"></script>
+    <script src="assets/js/tabs.js"></script>
+    <script src="assets/js/video.js"></script>
+    <script src="assets/js/slick-slider.js"></script>
+    <script src="assets/js/custom.js"></script>
+    
+    <script>
+     
+// ===== SLIDER D'IMAGES =====
+let currentIndex = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        dots[i].classList.remove('active');
+    });
+    
+    currentIndex = index;
+    slides[currentIndex].classList.add('active');
+    dots[currentIndex].classList.add('active');
+}
+
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+}
+
+function currentSlide(index) {
+    showSlide(index);
+}
+
+// Auto-slide toutes les 4 secondes
+setInterval(nextSlide, 4000);
+
+// ===== MENU HAMBURGER =====
+function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const menuToggle = document.querySelector('.menu-toggle');
+    navLinks.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+}
+
+function closeMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const menuToggle = document.querySelector('.menu-toggle');
+    navLinks.classList.remove('active');
+    menuToggle.classList.remove('active');
+    
+    // Ferme tous les sous-menus
+    document.querySelectorAll('.has-sub').forEach(item => {
+        item.classList.remove('active');
+    });
+}
+
+// ===== SOUS-MENU MOBILE =====
+document.addEventListener('DOMContentLoaded', function() {
+    const hasSubItems = document.querySelectorAll('.has-sub');
+    
+    hasSubItems.forEach(item => {
+        const parentLink = item.querySelector('a');
+        
+        // Clic sur le parent (Nos offres)
+        parentLink.addEventListener('click', function(e) {
+            if (window.innerWidth <= 968) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Ferme les autres sous-menus
+                hasSubItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle le sous-menu actuel
+                item.classList.toggle('active');
+            }
+        });
+        
+        // Permet le clic sur les liens du sous-menu
+        const subMenuLinks = item.querySelectorAll('.sub-menu a');
+        subMenuLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.stopPropagation();
+                // Ferme le menu après clic
+                closeMenu();
+            });
+        });
+    });
+});
+
+// ===== NAVIGATION ACTIVE AU SCROLL =====
+window.addEventListener('scroll', function() {
+    const sections = document.querySelectorAll('section[id]');
+    const scrollPosition = window.scrollY + 150;
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            // Retire la classe active de tous les liens
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Ajoute la classe active au lien correspondant
+            const activeLink = document.querySelector(`.nav-links a[href*="#${sectionId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+    });
+});
+
+// ===== SMOOTH SCROLL VERS LES SECTIONS =====
+document.querySelectorAll('.scroll-to-section a, .main-menu a, .responsive-menu a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        
+        // Vérifie si c'est un lien interne (#)
+        if (href && href.startsWith('#')) {
+            e.preventDefault();
+            const targetId = href.substring(1);
+            const targetSection = document.getElementById(targetId);
+            
+            if (targetSection) {
+                const targetPosition = targetSection.offsetTop - 80;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Ferme le menu mobile après clic
+                closeMenu();
+            }
+        }
+    });
+});
+
+// ===== SCROLL AUTOMATIQUE AU CHARGEMENT (pour liens externes) =====
+window.addEventListener('load', function() {
+    if (window.location.hash) {
+        setTimeout(function() {
+            const target = document.querySelector(window.location.hash);
+            if (target) {
+                const targetPosition = target.offsetTop - 80;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }, 100);
+    }
+});
+
+// ===== FLIP CARD (si tu as des cartes à retourner) =====
+function flipCard(card) {
+    card.classList.toggle('flipped');
+}
+
+// ===== INTERSECTION OBSERVER POUR ANIMATIONS =====
+const observerOptions = {
+    threshold: 0.15,
+    rootMargin: '0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            // Une fois animé, on arrête d'observer
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// Observer les éléments (vérifie qu'ils existent)
+const imageWrapper = document.getElementById('aboutImageWrapper');
+const aboutContent = document.getElementById('aboutContent');
+
+if (imageWrapper) observer.observe(imageWrapper);
+if (aboutContent) observer.observe(aboutContent);
+
+// ===== JQUERY (SI TU UTILISES JQUERY) =====
+// Note: Le code jQuery ci-dessous est redondant avec le JavaScript vanilla ci-dessus
+// Tu peux le supprimer si tu n'utilises pas jQuery ailleurs
+
+// Active le premier élément du menu
+if (typeof $ !== 'undefined') {
+    $(document).ready(function() {
+        $('.nav li:first').addClass('active');
+        
+        // Gestion du scroll avec jQuery
+        var checkSection = function() {
+            $('.section').each(function() {
+                var $this = $(this),
+                    topEdge = $this.offset().top - 80,
+                    bottomEdge = topEdge + $this.height(),
+                    wScroll = $(window).scrollTop();
+                    
+                if (topEdge < wScroll && bottomEdge > wScroll) {
+                    var currentId = $this.data('section'),
+                        reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+                    reqLink.closest('li').addClass('active')
+                           .siblings().removeClass('active');
+                }
+            });
+        };
+        
+        $(window).scroll(function() {
+            checkSection();
+        });
+    });
+}
+
+        //according to loftblog tut
+        $('.nav li:first').addClass('active');
+
+        var showSection = function showSection(section, isAnimate) {
+          var
+          direction = section.replace(/#/, ''),
+          reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+          reqSectionPos = reqSection.offset().top - 0;
+
+          if (isAnimate) {
+            $('body, html').animate({
+              scrollTop: reqSectionPos },
+            800);
+          } else {
+            $('body, html').scrollTop(reqSectionPos);
+          }
+
+        };
+
+        var checkSection = function checkSection() {
+          $('.section').each(function () {
+            var
+            $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+            if (topEdge < wScroll && bottomEdge > wScroll) {
+              var
+              currentId = $this.data('section'),
+              reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+              reqLink.closest('li').addClass('active').
+              siblings().removeClass('active');
+            }
+          });
+        };
+
+        $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
+          e.preventDefault();
+          showSection($(this).attr('href'), true);
+        });
+
+        $(window).scroll(function () {
+          checkSection();
+        });
+    </script>
+</body>
+
+
+  </body>
+
+</html>
